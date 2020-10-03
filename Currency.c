@@ -34,15 +34,6 @@ int main()
     printf(" Input: ");
     setColor(LIGHTBLUE);
     scanf("%lf %s", &currInput.amount, &currInput.currType);
-	resetColor();
-    if (strcmp(currInput.currType, "") == 0)
-    {
-        setColor(RED);
-        printf("\n ERROR: EMPTY INPUT! PLEASE TRY AGAIN!\n\n");
-	    resetColor();
-        goto Input;
-    }
-    
     strupr(strncpy(currType1, currInput.currType, 3));
     strupr(strcpy(currType2, &currInput.currType[4]));
     fetchJson(currType1, currType2);
