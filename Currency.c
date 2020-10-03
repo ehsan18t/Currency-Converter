@@ -57,9 +57,7 @@ Input:
     }
     else if (rate == -2)
     {
-        setColor(RED);
-        printf("\n ERROR: WRONG INPUT! PLEASE TRY AGAIN!\n\n");
-        resetColor();
+        wrongInput();
         goto Input;
     }
 

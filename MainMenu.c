@@ -45,9 +45,7 @@ STINP:
     }
     else
     {
-        setColor(LIGHTRED);
-        printf("WRONG INPUT! TRY AGAIN!");
-        resetColor();
+        wrongInput();
         goto STINP;
     }
     return 0;

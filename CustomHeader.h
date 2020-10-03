@@ -54,6 +54,13 @@ void replace_url2(char url[], char x[], char y[])
     }
 }
 
+void wrongInput()
+{
+    setColor(RED);
+    printf("\n ERROR: WRONG INPUT! PLEASE TRY AGAIN!\n\n");
+    resetColor();
+}
+
 // Could be use json parser library but that will be overkill for
 // this small amount of work.
 double scanjson(char jsonName[])
