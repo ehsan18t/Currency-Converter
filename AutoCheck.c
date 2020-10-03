@@ -4,7 +4,7 @@
 #include "CustomHeader.h"
 
 int inputValidate(char[]);
-void checkPrice(double, double, char [], char [], char []);
+void checkPrice(double, double, char[], char[], char[]);
 
 typedef struct
 {
@@ -70,7 +70,6 @@ int main()
             break;
         }
     }
-    
 
     printf("Rounds (0 = Infinity): ");
     scanf("%d", &info.round);
@@ -131,7 +130,6 @@ int main()
         // Copying Old Rate
         for (int m = 0; m < 5; m++)
             oRate[m] = nRate[m];
-        
     }
     return 0;
 }

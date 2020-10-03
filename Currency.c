@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <string.h>
-#include "CustomHeader.h"
 #include "rlutil.h"
+#include "CustomHeader.h"
 // "rlutil.h" Custom header file to use colors efficiently in cross platform
 // REF: https://github.com/tapio/rlutil
 
@@ -132,7 +132,7 @@ void saveOut(double amount, double rate, char currType1[], char currType2[])
     FILE *fptr;
     char buff[100] = "";
     char x[100] = "";
-    sprintf(x, "Calculations/%.2lf_%s-%s", amount, currType1, currType2);
+    sprintf(x, "Calculations/%.2lf_%s-%s_", amount, currType1, currType2);
     timeName(buff, x);
     // opening file in writing mode
     fptr = fopen(x, "w");

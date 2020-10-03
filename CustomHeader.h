@@ -1,22 +1,22 @@
 #include <string.h>
 #include <time.h>
+#include <windows.h>
 #include <stdlib.h>
 
 void timeName(char data[], char prefix[])
 {
     time_t now = time(0);
     // Storing Current Time in 'data'
-    strftime(data, 100, "_%Y-%m-%d_%H-%M-%S.txt", localtime(&now));
-    //
+    strftime(data, 100, "%Y-%m-%d_%H-%M-%S.txt", localtime(&now));
     strcat(prefix, data);
 }
-
 
 void currTime(char data[])
 {
     time_t now = time(0);
     strftime(data, 100, "%Y-%m-%d %H:%M:%S", localtime(&now));
 }
+
 void replace_char(char *str, char oldChar, char newChar)
 {
     int i = 0;
@@ -59,8 +59,6 @@ void replace_url2(char url[], char x[], char y[])
         i++;
     }
 }
-
-
 
 int check_char(char str[], char x)
 {
