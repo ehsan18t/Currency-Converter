@@ -54,6 +54,20 @@ void replace_url2(char url[], char x[], char y[])
     }
 }
 
+
+
+int check_char(char str[], char x)
+{
+    int flag = 0, i = 0;
+    while (str[i] != '\0')
+    {
+        if (str[i] == x)
+            flag = 1;
+        i++;
+    }
+    return flag;
+}
+
 void wrongInput()
 {
     setColor(RED);
