@@ -3,13 +3,11 @@
 #include <windows.h>
 #include <string.h>
 #include "rlutil.h"
-
 // "rlutil.h" Custom header file to use colors efficiently in cross platform
 // REF: https://github.com/tapio/rlutil
 
 void inst();
 double scanjson();
-void fetchJson(char x[], char y[]);
 void fetchJson(char[], char[]);
 void timeName(char[], char[]);
 
@@ -21,21 +19,21 @@ typedef struct
     char currType[8];
 } currInput;
 
-
-int main()
 {
     char ch;
-	saveDefaultColor();
-    start:
+    saveDefaultColor();
+start:
     inst();
     currInput currInput;
     double rate = 0, total = 0;
     char currType1[4] = "", currType2[4] = "";
-    Input:
+Input:
     setColor(LIGHTGREEN);
     printf(" Input: ");
     setColor(LIGHTBLUE);
     scanf("%lf %s", &currInput.amount, &currInput.currType);
+    resetColor();
+
     strupr(strncpy(currType1, currInput.currType, 3));
     strupr(strcpy(currType2, &currInput.currType[4]));
     fetchJson(currType1, currType2);
@@ -44,21 +42,20 @@ int main()
     {
         setColor(RED);
         printf("\n ERROR: Failed To Fetch API!\n");
-	    resetColor();
+        resetColor();
         exit(0);
     }
     else if (rate == -2)
     {
         setColor(RED);
         printf("\n ERROR: WRONG INPUT! PLEASE TRY AGAIN!\n\n");
-	    resetColor();
+        resetColor();
         goto Input;
     }
-    
-    
+
     printf(" Current Rate: 1 %s = %.4lf %s\n", currType1, rate, currType2);
     setColor(LIGHTCYAN);
-    printf(" Total: %.02lf %s\n", (rate * currInput.amount),currType2);
+    printf(" Total: %.02lf %s\n", (rate * currInput.amount), currType2);
     setColor(LIGHTGREEN);
     printf(" Calculation: %.4lf %s x %.4lf %s = %.02lf %s\n", currInput.amount, currType1, rate, currType2, (rate * currInput.amount), currType2);
     resetColor();
@@ -145,11 +142,11 @@ double scanjson()
     // Assigning first line of 'convert.json' into 'temp' array
     fscanf(fp, "%s", &temp);
     fclose(fp);
-    remove ("currencyRate.json");
+    remove("currencyRate.json");
     // checking invalid input
     if (strcmp(temp, "{}") == 0)
         return -2;
-    
+
     // Copying double from 'temp' to 'rate' as a string.
     // NOTE: First 10 index will always be character type because
     //       of json format, number type will start from index 11.
@@ -163,7 +160,6 @@ double scanjson()
     // function from 'stdlib.h' and returning the value.
     return atof(rate);
 }
-
 
 // NOTE: This function will run in only Windows.
 // Requirement: Internet Explorer 3 or higher or just urlmon.dll library.
@@ -179,7 +175,7 @@ void fetchJson(char x[], char y[])
     char buffer[MAX_LINE];
 
     // Replacing 'USD_BDT' with inputted currency types using 2 while loop.
-    // Because in this case(index are known) this one seems more efficient than 
+    // Because in this case(index are known) this one seems more efficient than
     // recurrtion or any other pre-built function of C.
     while (url[i] != '_')
     {
@@ -195,37 +191,36 @@ void fetchJson(char x[], char y[])
         j++;
         i++;
     }
-    
-    HRESULT    dl;
-    
-    typedef HRESULT (WINAPI * URLDownloadToFileA_t)(LPUNKNOWN pCaller, LPCSTR szURL, LPCSTR szFileName, DWORD dwReserved, void * lpfnCB);
+
+    HRESULT dl;
+
+    typedef HRESULT(WINAPI * URLDownloadToFileA_t)(LPUNKNOWN pCaller, LPCSTR szURL, LPCSTR szFileName, DWORD dwReserved, void *lpfnCB);
     URLDownloadToFileA_t xURLDownloadToFileA;
     xURLDownloadToFileA = (URLDownloadToFileA_t)GetProcAddress(LoadLibraryA("urlmon"), "URLDownloadToFileA");
 
     dl = xURLDownloadToFileA(NULL, url, destination, 0, NULL);
-    
+
     // Print only error messege if occurs.
-    if(dl == S_OK)
+    if (dl == S_OK)
     {
     }
-    else if(dl == E_OUTOFMEMORY) 
+    else if (dl == E_OUTOFMEMORY)
     {
         setColor(RED);
         sprintf(buffer, "\n ERROR: Failed To Fetch API! \nREASON: Insufficient Memory!\n");
         printf(buffer);
-	    resetColor();
+        resetColor();
         exit(0);
-    } 
-    else 
+    }
+    else
     {
         setColor(RED);
-        sprintf( buffer, "\n ERROR: Failed To Fetch API! \nREASON: Internet Connction not Available!\n");
+        sprintf(buffer, "\n ERROR: Failed To Fetch API! \nREASON: Internet Connction not Available!\n");
         printf(buffer);
-	    resetColor();
+        resetColor();
         exit(0);
     }
 }
-
 
 void inst()
 {
@@ -234,15 +229,18 @@ void inst()
     printf("                           **  Currency Conversion  **\n");
     printf("                           ***************************\n\n");
     setColor(LIGHTCYAN);
-    printf(" ----------------------------------------------------------------------------------\n");
+    printf("  ________________________________________________________________________________\n");
+    printf(" |                                                                                |\n");
     printf(" |  USES: [AMOUNT] [CURRENT CURRENCY ID]-[CONVERT CURRENCY ID]                    |\n");
     printf(" |  EXAMPLES: 1 usd-bdt                                                           |\n");
     printf(" |            500 bdt-usd                                                         |\n");
     printf(" |            10 bdt-inr                                                          |\n");
     printf(" |  NOTES: '-' is used as 'to'                                                    |\n");
     printf(" |         All supported 'CURRENCY ID' can be found in 'Supported Currencies.txt' |\n");
-    printf(" ----------------------------------------------------------------------------------\n\n");
-	resetColor();
+    printf(" |________________________________________________________________________________|\n\n");
+    resetColor();
+}
+
 void timeName(char data[], char prefix[])
 {
     time_t now = time(0);
