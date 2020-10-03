@@ -33,11 +33,36 @@ Input:
     setColor(LIGHTGREEN);
     printf(" Input: ");
     setColor(LIGHTBLUE);
-    scanf("%lf %s", &currInput.amount, &currInput.currType);
+    scanf("%lf %[^\n]", &currInput.amount, &currInput.currType);
     resetColor();
+
+    // Input Validation Lv. 1
+    if(strlen(currInput.currType) != 7) 
+    {
+        wrongInput();
+        goto Input;
+    }
+
+    // Input Validation Lv. 2
+    if (currInput.currType[3] != '-')
+    {
+        wrongInput();
+        goto Input;
+    }
 
     strupr(strncpy(currType1, currInput.currType, 3));
     strupr(strcpy(currType2, &currInput.currType[4]));
+    
+    // Input Validation Lv. 3
+    for (int i = 0; i < 3; i++)
+    {
+        if (!isalpha(currType1[i]) || !isalpha(currType2[i]))
+        {
+            wrongInput();
+            goto Input;
+        }
+    }
+    
 
     // Replacing '-' with '_' inside inputted currency type to match api url format.
     replace_char(currInput.currType, '-', '_');
@@ -57,6 +82,7 @@ Input:
     }
     else if (rate == -2)
     {
+        // Input Validation Lv. 4 (Final Level)
         wrongInput();
         goto Input;
     }
