@@ -70,27 +70,10 @@ Input:
     hidecursor();
 
 ConfirmationEnd:
-    printf("\n =================================================================================== ");
-    printf("\n ||    ");
-    setColor(LIGHTMAGENTA);
-    printf("[C]");
-    setColor(YELLOW);
-    printf(" Continue     ");
-    setColor(LIGHTMAGENTA);
-    printf("[S]");
-    setColor(YELLOW);
-    printf(" Save Calculations      ");
-    setColor(LIGHTMAGENTA);
-    printf("[M]");
-    setColor(YELLOW);
-    printf(" Main Menu      ");
-    setColor(LIGHTMAGENTA);
-    printf("[X]");
-    setColor(YELLOW);
-    printf(" Exit    ");
-    resetColor();
-    printf("||\n ===================================================================================\n");
+    // Options Menu
+    endOpt();
 
+    // Options working method
     ch = tolower(getch());
     if (ch == 'c')
     {
@@ -161,5 +144,26 @@ void inst()
     resetColor();
 }
 
+void endOpt()
 {
+    printf("\n =================================================================================== ");
+    printf("\n ||    ");
+    setColor(LIGHTMAGENTA);
+    printf("[C]");
+    setColor(YELLOW);
+    printf(" Continue     ");
+    setColor(LIGHTMAGENTA);
+    printf("[S]");
+    setColor(YELLOW);
+    printf(" Save Calculations      ");
+    setColor(LIGHTMAGENTA);
+    printf("[M]");
+    setColor(YELLOW);
+    printf(" Main Menu      ");
+    setColor(LIGHTMAGENTA);
+    printf("[X]");
+    setColor(YELLOW);
+    printf(" Exit    ");
+    resetColor();
+    printf("||\n ===================================================================================\n");
 }
