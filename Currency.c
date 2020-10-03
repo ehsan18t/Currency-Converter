@@ -10,6 +10,8 @@
 void inst();
 double scanjson();
 void fetchJson(char x[], char y[]);
+void fetchJson(char[], char[]);
+void timeName(char[], char[]);
 
 #define MAX_LINE 128
 
@@ -84,11 +86,48 @@ ConfirmationEnd:
     printf("||\n ===================================================================================\n");
 
     ch = tolower(getch());
+    if (ch == 'c')
     {
-	    showcursor();
+        showcursor();
         cls();
         goto start;
     }
+    else if (ch == 's')
+    {
+        FILE *fptr;
+        char buff[100] = "";
+        char x[100] = "";
+        sprintf(x, "Calculations/%.2lf_%s-%s", currInput.amount, currType1,currType2);
+        timeName(buff, x);
+        // opening file in writing mode
+        fptr = fopen(x, "w");
+
+        // exiting program
+        if (fptr == NULL)
+        {
+            printf("Error!");
+            exit(1);
+        }
+        fprintf(fptr, "Current Rate: 1 %s = %.4lf %s\n", currType1, rate, currType2);
+        fprintf(fptr, "Total: %.02lf %s\n", (rate * currInput.amount), currType2);
+        fprintf(fptr, "Calculation: %.4lf %s x %.4lf %s = %.02lf %s\n", currInput.amount, currType1, rate, currType2, (rate * currInput.amount), currType2);
+        fclose(fptr);
+        setColor(LIGHTGREEN);
+        printf("\n                            -> Operation Successful <-\n");
+        resetColor();
+        goto ConfirmationEnd;
+    }
+    else if (ch == 'm')
+    {
+        showcursor();
+        *x = 1;
+    }
+    else if (ch == 'x')
+    {
+        showcursor();
+        exit(0);
+    }
+
     return 0;
 }
 
@@ -204,4 +243,10 @@ void inst()
     printf(" |         All supported 'CURRENCY ID' can be found in 'Supported Currencies.txt' |\n");
     printf(" ----------------------------------------------------------------------------------\n\n");
 	resetColor();
+void timeName(char data[], char prefix[])
+{
+    time_t now = time(0);
+    // Storing Current Time in 'data'
+    strftime(data, 100, "_%Y-%m-%d_%H-%M-%S.txt", localtime(&now));
+    strcat(prefix, data);
 }
