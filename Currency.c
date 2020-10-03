@@ -7,9 +7,11 @@
 // "rlutil.h" Custom header file to use colors efficiently in cross platform
 // REF: https://github.com/tapio/rlutil
 
+void cTop();
+void endOpt();
 void saveOut(double, double, char[], char[]);
 
-#define MAX_LINE 128
+#define MAX_LINE 256
 
 typedef struct
 {
@@ -22,7 +24,7 @@ typedef struct
     char url[MAX_LINE] = "https://free.currconv.com/api/v7/convert?q=USD_BDT&compact=ultra&apiKey=6cb174e127df4a1139f6";
     saveDefaultColor();
 start:
-    inst();
+    cTop();
     currInput currInput;
     double rate = 0, total = 0;
     char currType1[4] = "", currType2[4] = "";
@@ -125,7 +127,7 @@ void saveOut(double amount, double rate, char currType1[], char currType2[])
     resetColor();
 }
 
-void inst()
+void cTop()
 {
     setColor(LIGHTRED);
     printf(" \n                           ***************************\n");
