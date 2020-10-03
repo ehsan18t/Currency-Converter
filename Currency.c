@@ -68,13 +68,31 @@ int main()
     printf(" Total: %.02lf %s\n", (rate * currInput.amount),currType2);
     setColor(LIGHTGREEN);
     printf(" Calculation: %.4lf %s x %.4lf %s = %.02lf %s\n", currInput.amount, currType1, rate, currType2, (rate * currInput.amount), currType2);
-	resetColor();
-	hidecursor();
-    setColor(YELLOW);
-    printf("\n    -> Press C to Continue or any other key to exit <-\n");
     resetColor();
-    ch = getch();
-    if (ch == 'c' || ch == 'C')
+    hidecursor();
+ConfirmationEnd:
+    printf("\n =================================================================================== ");
+    printf("\n ||    ");
+    setColor(LIGHTMAGENTA);
+    printf("[C]");
+    setColor(YELLOW);
+    printf(" Continue     ");
+    setColor(LIGHTMAGENTA);
+    printf("[S]");
+    setColor(YELLOW);
+    printf(" Save Calculations      ");
+    setColor(LIGHTMAGENTA);
+    printf("[M]");
+    setColor(YELLOW);
+    printf(" Main Menu      ");
+    setColor(LIGHTMAGENTA);
+    printf("[X]");
+    setColor(YELLOW);
+    printf(" Exit    ");
+    resetColor();
+    printf("||\n ===================================================================================\n");
+
+    ch = tolower(getch());
     {
 	    showcursor();
         cls();
