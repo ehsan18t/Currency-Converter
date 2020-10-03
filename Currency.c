@@ -19,6 +19,7 @@ typedef struct
     char currType[8];
 } currInput;
 
+int CalculateCurrency(int *x)
 {
     char ch;
     char url[MAX_LINE] = "https://free.currconv.com/api/v7/convert?q=USD_BDT&compact=ultra&apiKey=6cb174e127df4a1139f6";
