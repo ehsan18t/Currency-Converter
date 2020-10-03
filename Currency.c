@@ -10,6 +10,7 @@ void inst();
 double scanjson();
 void fetchJson(char[], char[]);
 void timeName(char[], char[]);
+void saveOut(double, double, char[], char[]);
 
 #define MAX_LINE 128
 
@@ -91,27 +92,7 @@ ConfirmationEnd:
     }
     else if (ch == 's')
     {
-        FILE *fptr;
-        char buff[100] = "";
-        char x[100] = "";
-        sprintf(x, "Calculations/%.2lf_%s-%s", currInput.amount, currType1,currType2);
-        timeName(buff, x);
-        // opening file in writing mode
-        fptr = fopen(x, "w");
-
-        // exiting program
-        if (fptr == NULL)
-        {
-            printf("Error!");
-            exit(1);
-        }
-        fprintf(fptr, "Current Rate: 1 %s = %.4lf %s\n", currType1, rate, currType2);
-        fprintf(fptr, "Total: %.02lf %s\n", (rate * currInput.amount), currType2);
-        fprintf(fptr, "Calculation: %.4lf %s x %.4lf %s = %.02lf %s\n", currInput.amount, currType1, rate, currType2, (rate * currInput.amount), currType2);
-        fclose(fptr);
-        setColor(LIGHTGREEN);
-        printf("\n                            -> Operation Successful <-\n");
-        resetColor();
+        saveOut(currInput.amount, rate, currType1, currType2);
         goto ConfirmationEnd;
     }
     else if (ch == 'm')
@@ -166,6 +147,7 @@ double scanjson()
 //              (This library pre-built is into all Windows OS.)
 
 void fetchJson(char x[], char y[])
+void saveOut(double amount, double rate, char currType1[], char currType2[])
 {
     // REF: https://www.go4expert.com/articles/download-file-using-urldownloadtofile-c-t28721/
     int i = 43, j = 0;
@@ -202,7 +184,19 @@ void fetchJson(char x[], char y[])
 
     // Print only error messege if occurs.
     if (dl == S_OK)
+    FILE *fptr;
+    char buff[100] = "";
+    char x[100] = "";
+    sprintf(x, "Calculations/%.2lf_%s-%s", amount, currType1, currType2);
+    timeName(buff, x);
+    // opening file in writing mode
+    fptr = fopen(x, "w");
+
+    // exiting program
+    if (fptr == NULL)
     {
+        printf("Error!");
+        exit(1);
     }
     else if (dl == E_OUTOFMEMORY)
     {
@@ -220,6 +214,13 @@ void fetchJson(char x[], char y[])
         resetColor();
         exit(0);
     }
+    fprintf(fptr, "Current Rate: 1 %s = %.4lf %s\n", currType1, rate, currType2);
+    fprintf(fptr, "Total: %.02lf %s\n", (rate * amount), currType2);
+    fprintf(fptr, "Calculation: %.4lf %s x %.4lf %s = %.02lf %s\n", amount, currType1, rate, currType2, (rate * amount), currType2);
+    fclose(fptr);
+    setColor(LIGHTGREEN);
+    printf("\n                            -> Operation Successful <-\n");
+    resetColor();
 }
 
 void inst()
