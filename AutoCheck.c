@@ -18,18 +18,23 @@ typedef struct
     long interval;
 } AutoCheck;
 
+
+int vali4(AutoCheck, char[]);
+
 int main()
 {
     AutoCheck info;
     char currType1[4] = "";
+    char empty[4] = "";
     char currType2[4] = "";
     char time[128] = "";
     double nRate[5] = {0};
     double oRate[5] = {0};
-    int c;
+    int c = 0;
     saveDefaultColor();
     char url[128] = "https://free.currconv.com/api/v7/convert?q=USD_BDT&compact=ultra&apiKey=6cb174e127df4a1139f6";
-    printf("How Many Exchange Rate Want to Auto Check? (MAX: 5)\n");
+Start:
+    printf("\n\nHow Many Exchange Rate Want to Auto Check? (MAX: 5)\n");
     printf("Input: ");
     scanf("%d", &info.num);
     for (int i = 1; i <= info.num; i++)
@@ -71,13 +76,16 @@ int main()
         }
     }
 
-    printf("Rounds (0 = Infinity): ");
+    printf("Rounds: ");
     scanf("%d", &info.round);
     printf("Interval (in Minutes): ");
     scanf("%ld", &info.interval);
     info.interval += info.interval * 60 * 1000;
 
-    for (int i = 0; i < info.round; i++)
+    if (vali4(info, url) == -2)
+        goto Start;
+    
+    for (int z = 0; z < info.round; z++)
     {
         switch (info.num)
         {
@@ -89,6 +97,7 @@ int main()
             strupr(strncpy(currType1, info.exc5, 3));
             strupr(strcpy(currType2, &info.exc5[4]));
             checkPrice(oRate[c], nRate[c], time, currType1, currType2);
+            Sleep(1000);
         case 4:
             c = 3;
             replace_url1(url, info.exc4);
@@ -97,6 +106,7 @@ int main()
             strupr(strncpy(currType1, info.exc4, 3));
             strupr(strcpy(currType2, &info.exc4[4]));
             checkPrice(oRate[c], nRate[c], time, currType1, currType2);
+            Sleep(1000);
         case 3:
             c = 2;
             replace_url1(url, info.exc3);
@@ -105,6 +115,7 @@ int main()
             strupr(strncpy(currType1, info.exc3, 3));
             strupr(strcpy(currType2, &info.exc3[4]));
             checkPrice(oRate[c], nRate[c], time, currType1, currType2);
+            Sleep(1000);
         case 2:
             c = 1;
             replace_url1(url, info.exc2);
@@ -113,6 +124,7 @@ int main()
             strupr(strncpy(currType1, info.exc2, 3));
             strupr(strcpy(currType2, &info.exc2[4]));
             checkPrice(oRate[c], nRate[c], time, currType1, currType2);
+            Sleep(1000);
         case 1:
             c = 0;
             replace_url1(url, info.exc1);
@@ -168,20 +180,103 @@ void checkPrice(double oRate, double nRate, char time[], char currType1[], char 
     {
         setColor(LIGHTGREEN);
         printf("%s - %s-%s Price Increased!\n", time, currType1, currType2);
-        printf("            Old Rate: %.4lf\n", oRate);
-        printf("            New Rate: %.4lf\n", nRate);
+        printf("                      Old Rate: %.4lf\n", oRate);
+        printf("                      New Rate: %.4lf\n", nRate);
         resetColor();
     }
     else if (nRate < oRate)
     {
         setColor(LIGHTRED);
         printf("%s - %s-%s Price Decreased!\n", time, currType1, currType2);
-        printf("            Old Rate: %.4lf\n", oRate);
-        printf("            New Rate: %.4lf\n", nRate);
+        printf("                      Old Rate: %.4lf\n", oRate);
+        printf("                      New Rate: %.4lf\n", nRate);
         resetColor();
     }
     else
     {
         printf("%s - %s-%s %.4lf\n", time, currType1, currType2, nRate);
     }
+}
+
+int vali4(AutoCheck info, char url[])
+{
+    char currType1[4] = "";
+    char currType2[4] = "";
+    int nRate, c;
+    
+    switch (info.num)
+    {
+    case 5:
+        c = 5;
+        replace_url1(url, info.exc5);
+        fetchJson(url, "currencyRate.json");
+        nRate = scanjson("currencyRate.json");
+        strupr(strncpy(currType1, info.exc5, 3));
+        strupr(strcpy(currType2, &info.exc5[4]));
+        if (nRate == -2)
+        {
+            setColor(RED);
+            printf("\n ERROR: INVALID INPUT AT 'Exchange %d: %s-%s'! PLEASE TRY AGAIN!\n\n", c, currType1, currType2);
+            resetColor();
+            return -2;
+        }
+    case 4:
+        c = 4;
+        replace_url1(url, info.exc4);
+        fetchJson(url, "currencyRate.json");
+        nRate = scanjson("currencyRate.json");
+        strupr(strncpy(currType1, info.exc4, 3));
+        strupr(strcpy(currType2, &info.exc4[4]));
+        if (nRate == -2)
+        {
+            setColor(RED);
+            printf("\n ERROR: INVALID INPUT AT 'Exchange %d: %s-%s'! PLEASE TRY AGAIN!\n\n", c, currType1, currType2);
+            resetColor();
+            return -2;
+        }
+    case 3:
+        c = 3;
+        replace_url1(url, info.exc3);
+        fetchJson(url, "currencyRate.json");
+        nRate = scanjson("currencyRate.json");
+        strupr(strncpy(currType1, info.exc3, 3));
+        strupr(strcpy(currType2, &info.exc3[4]));
+        if (nRate == -2)
+        {
+            setColor(RED);
+            printf("\n ERROR: INVALID INPUT AT 'Exchange %d: %s-%s'! PLEASE TRY AGAIN!\n\n", c, currType1, currType2);
+            resetColor();
+            return -2;
+        }
+    case 2:
+        c = 2;
+        replace_url1(url, info.exc2);
+        fetchJson(url, "currencyRate.json");
+        nRate = scanjson("currencyRate.json");
+        strupr(strncpy(currType1, info.exc2, 3));
+        strupr(strcpy(currType2, &info.exc2[4]));
+        if (nRate == -2)
+        {
+            setColor(RED);
+            printf("\n ERROR: INVALID INPUT AT 'Exchange %d: %s-%s'! PLEASE TRY AGAIN!\n\n", c, currType1, currType2);
+            resetColor();
+            return -2;
+        }
+    case 1:
+        c = 1;
+        replace_url1(url, info.exc1);
+        fetchJson(url, "currencyRate.json");
+        nRate = scanjson("currencyRate.json");
+        strupr(strncpy(currType1, info.exc1, 3));
+        strupr(strcpy(currType2, &info.exc1[4]));
+        if (nRate == -2)
+        {
+            setColor(RED);
+            printf("\n ERROR: INVALID INPUT AT 'Exchange %d: %s-%s'! PLEASE TRY AGAIN!\n\n", c, currType1, currType2);
+            resetColor();
+            return -2;
+        }
+        break;
+    }
+    return 0;
 }
