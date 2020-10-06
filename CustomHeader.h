@@ -33,6 +33,12 @@ void currDate(char data[])
     strftime(data, 100, "%Y-%m-%d", localtime(&now));
 }
 
+void PreviousDate(char data[], int minus)
+{
+    time_t now = time(NULL) - (24 * 60 * 60 * minus);
+    strftime(data, 100, "%Y-%m-%d", localtime(&now));
+}
+
 void replace_char(char *str, char oldChar, char newChar)
 {
     int i = 0;
