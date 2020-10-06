@@ -3,6 +3,7 @@
 #include "rlutil.h"
 #include "CustomHeader.h"
 
+void aTop();
 int inputValidate(char[]);
 void checkPrice(double, double, char[], char[], char[]);
 
@@ -17,6 +18,8 @@ int vali4(AutoCheck, char[]);
 
 int main()
 {
+    saveDefaultColor();
+    aTop();
     AutoCheck info;
     char currType1[4] = "";
     char empty[4] = "";
@@ -26,10 +29,9 @@ int main()
     double nRate = 0;
     double oRate = 0;
     int c = 0;
-    saveDefaultColor();
     char url[128] = "https://free.currconv.com/api/v7/convert?q=USD_BDT&compact=ultra&apiKey=6cb174e127df4a1139f6";
 Input:
-    printf("\n\nExchange ID: ");
+    printf("Exchange ID: ");
     scanf("%s", &info.exc1);
     if (inputValidate(info.exc1) == -1)
         goto Input;
@@ -135,4 +137,21 @@ int vali4(AutoCheck info, char url[])
         return -2;
     }
     return 0;
+}
+
+void aTop()
+{
+    setColor(LIGHTRED);
+    printf("\n                 ================================        \n");
+    printf("                 ||   Automatic Rate Checker   ||        \n");
+    printf("                 ================================       \n");
+    setColor(LIGHTCYAN);
+    printf("  ____________________________________________________________________\n");
+    printf(" |                                                                    |\n");
+    printf(" |                          INSTRUCTIONS                              |\n");
+    printf(" |  Exchange ID: Which currency rate will be checked. (eg. USD-BDT)   |\n");
+    printf(" |  Rounds: How many times currency rate will be checked.             |\n");
+    printf(" |  Interval: How much wait before check again.                       |\n");
+    printf(" |____________________________________________________________________|\n\n");
+    resetColor();
 }
