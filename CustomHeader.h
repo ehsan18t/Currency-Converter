@@ -14,7 +14,13 @@ void timeName(char data[], char prefix[])
 void currTime(char data[])
 {
     time_t now = time(0);
-    strftime(data, 100, "%Y-%m-%d %H:%M:%S", localtime(&now));
+    strftime(data, 100, "%H:%M:%S", localtime(&now));
+}
+
+void currDate(char data[])
+{
+    time_t now = time(0);
+    strftime(data, 100, "%Y-%m-%d", localtime(&now));
 }
 
 void replace_char(char *str, char oldChar, char newChar)

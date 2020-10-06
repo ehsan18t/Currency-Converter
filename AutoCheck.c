@@ -21,7 +21,8 @@ int main()
     char currType1[4] = "";
     char empty[4] = "";
     char currType2[4] = "";
-    char time[128] = "";
+    char time[20] = "";
+    char date[20] = "";
     double nRate = 0;
     double oRate = 0;
     int c = 0;
@@ -41,8 +42,8 @@ Input:
     info.interval += info.interval * 60 * 1000;
     
     printf("\n");
-    printf("   Date      Time      Exchange ID     Exchange Rate\n");
-    printf("  ------    ------    -------------   ---------------\n");
+    printf("   Date         Time      Exchange ID     Exchange Rate\n");
+    printf("  ------       ------    -------------   ---------------\n");
 
     if (vali4(info, url) == -2)
         goto Input;
@@ -54,7 +55,7 @@ Input:
         nRate = scanjson("currencyRate.json");
         strupr(strncpy(currType1, info.exc1, 3));
         strupr(strcpy(currType2, &info.exc1[4]));
-        checkPrice(oRate, nRate, time, currType1, currType2);
+        checkPrice(oRate, nRate, date, time, currType1, currType2);
 
         // Interval
         if (z != info.round)
@@ -94,24 +95,25 @@ int inputValidate(char input[])
     return 0;
 }
 
-void checkPrice(double oRate, double nRate, char time[], char currType1[], char currType2[])
+void checkPrice(double oRate, double nRate, char date[], char time[], char currType1[], char currType2[])
 {
+    currDate(date);
     currTime(time);
-    if (oRate != 0 && nRate == oRate)
+    if (oRate != 0 && nRate > oRate)
     {
         setColor(LIGHTGREEN);
-        printf("%s      %s-%s          %.4lf\n", time, currType1, currType2, nRate);
+        printf("%s    %s      %s-%s          %.4lf\n", date, time, currType1, currType2, nRate);
         resetColor();
     }
     else if (nRate < oRate)
     {
         setColor(LIGHTRED);
-        printf("%s      %s-%s          %.4lf\n", time, currType1, currType2, nRate);
+        printf("%s    %s      %s-%s          %.4lf\n", date, time, currType1, currType2, nRate);
         resetColor();
     }
     else
     {
-        printf("%s      %s-%s          %.4lf\n", time, currType1, currType2, nRate);
+        printf("%s    %s      %s-%s          %.4lf\n", date, time, currType1, currType2, nRate);
     }
 }
 
