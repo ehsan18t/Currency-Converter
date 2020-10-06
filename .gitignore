@@ -57,5 +57,7 @@ dkms.conf
 cmake-build-debug/
 Data/
 Calculations/
+bin/
+History/
 CMakeLists.txt
 Test.c
