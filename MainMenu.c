@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "rlutil.h"
 #include "Currency.c"
+#include "AutoCheck.c"
 
 void cMenu();
 void cHead();
@@ -29,7 +30,8 @@ STINP:
     }
     else if (ch == '2')
     {
-        /* code */
+        cls();
+        autoCheck();
     }
     else if (ch == '3')
     {
