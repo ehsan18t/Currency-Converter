@@ -14,7 +14,7 @@ int inputValidate(char[]);
 void checkPrice(double, double, char[], char[], char[], char[]);
 int vali4(AutoCheck, char[]);
 
-int autoCheck()
+void autoCheck()
 {
     saveDefaultColor();
     aTop();
@@ -63,14 +63,13 @@ Input:
         // Capturing History
         fprintf(AutoHistory, "%s    %s    %s-%s    %.4lf\n", date, time, currType1, currType2, nRate);
         // Interval
-        if (i != info.round)
+        if (i != info.round-1)
             Sleep(info.interval);
 
         // Copying Old Rate
         for (int m = 0; m < 5; m++)
             oRate = nRate;
     }
-    return 0;
     fclose(AutoHistory);
 }
 
@@ -127,7 +126,7 @@ int vali4(AutoCheck info, char url[])
 {
     char currType1[4] = "";
     char currType2[4] = "";
-    int nRate, c;
+    int nRate;
     replace_url1(url, info.exc1);
     fetchJson(url, "currencyRate.json");
     nRate = scanjson("currencyRate.json");
@@ -158,4 +157,24 @@ void aTop()
     printf(" |  Interval: How much wait before check again.                       |\n");
     printf(" |____________________________________________________________________|\n\n");
     resetColor();
+}
+
+void endOptAuto()
+{
+    printf("\n ===================================================== ");
+    printf("\n ||    ");
+    setColor(LIGHTMAGENTA);
+    printf("[A]");
+    setColor(YELLOW);
+    printf(" Again     ");
+    setColor(LIGHTMAGENTA);
+    printf("[M]");
+    setColor(YELLOW);
+    printf(" Main Menu      ");
+    setColor(LIGHTMAGENTA);
+    printf("[X]");
+    setColor(YELLOW);
+    printf(" Exit    ");
+    resetColor();
+    printf("||\n =====================================================\n");
 }

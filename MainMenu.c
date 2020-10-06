@@ -8,7 +8,7 @@ void cHead();
 
 int main()
 {
-    char ch;
+    char ch, ch2;
     int stMenu;
     saveDefaultColor();
 stMenu:
@@ -30,8 +30,30 @@ STINP:
     }
     else if (ch == '2')
     {
+        autoCheck:
         cls();
         autoCheck();
+        endOptAuto();
+        hidecursor();
+        autoCheckInp:
+        ch2 = tolower(getch());
+        if (ch2 == 'm')
+        {
+            showcursor();
+            goto stMenu;
+        }
+        else if(ch2 == 'a')
+        {
+            showcursor();
+            goto autoCheck;
+        }
+        else if(ch2 == 'x')
+            exit(0);
+        else
+        {
+            wrongInput();
+            goto autoCheckInp;
+        }
     }
     else if (ch == '3')
     {
