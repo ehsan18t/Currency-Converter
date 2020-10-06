@@ -29,6 +29,11 @@ start:
     currInput currInput;
     double rate = 0, total = 0;
     char currType1[4] = "", currType2[4] = "";
+    char time[20] = "";
+    char date[20] = "";
+    char CurrHisLoc[50] = "History/CurrencyCalculationHistory.txt";
+    FILE *CurrHistory;
+    CurrHistory = fopen(CurrHisLoc, "a+");
 Input:
     setColor(LIGHTGREEN);
     printf(" Input: ");
@@ -92,8 +97,14 @@ Input:
     setColor(LIGHTCYAN);
     printf(" Total: %.02lf %s\n", (rate * currInput.amount), currType2);
     setColor(LIGHTGREEN);
+    // Generating Time & Date
+    currDate(date);
+    currTime(time);
+    // Capturing History
+    fprintf(CurrHistory, "%s    %s    %.4lf    %s-%s    %.4lf\n", date, time, currInput.amount, currType1, currType2, rate);
     printf(" Calculation: %.4lf %s x %.4lf %s = %.02lf %s\n", currInput.amount, currType1, rate, currType2, (rate * currInput.amount), currType2);
     resetColor();
+    fclose(CurrHistory);
     hidecursor();
 
 ConfirmationEnd:

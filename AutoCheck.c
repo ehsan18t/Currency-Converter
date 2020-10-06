@@ -27,6 +27,10 @@ int autoCheck()
     double nRate = 0;
     double oRate = 0;
     int c = 0;
+    char AutoHisLoc[50] = "History/AutoCheckerHistory.txt";
+    FILE *AutoHistory;
+    AutoHistory = fopen(AutoHisLoc, "a+");
+    
     char url[128] = "https://free.currconv.com/api/v7/convert?q=USD_BDT&compact=ultra&apiKey=6cb174e127df4a1139f6";
 Input:
     printf("Exchange ID: ");
@@ -56,7 +60,8 @@ Input:
         strupr(strncpy(currType1, info.exc1, 3));
         strupr(strcpy(currType2, &info.exc1[4]));
         checkPrice(oRate, nRate, date, time, currType1, currType2);
-
+        // Capturing History
+        fprintf(AutoHistory, "%s    %s    %s-%s    %.4lf\n", date, time, currType1, currType2, nRate);
         // Interval
         if (i != info.round)
             Sleep(info.interval);
@@ -66,6 +71,7 @@ Input:
             oRate = nRate;
     }
     return 0;
+    fclose(AutoHistory);
 }
 
 int inputValidate(char input[])
