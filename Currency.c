@@ -155,9 +155,9 @@ void saveOut(double amount, double rate, char currType1[], char currType2[])
 void cTop()
 {
     setColor(LIGHTRED);
-    printf(" \n                           ***************************\n");
-    printf("                           **  Currency Conversion  **\n");
-    printf("                           ***************************\n\n");
+    printf("\n                      ============================        \n");
+    printf("                      ||   Currency Converter   ||        \n");
+    printf("                      ============================        \n");
     setColor(LIGHTCYAN);
     printf("  ________________________________________________________________________________\n");
     printf(" |                                                                                |\n");
