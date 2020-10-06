@@ -91,7 +91,7 @@ Input:
         wrongInput();
         goto Input;
     }
-
+    total = (rate * currInput.amount);
     // Console Output
     printf(" Current Rate: 1 %s = %.4lf %s\n", currType1, rate, currType2);
     setColor(LIGHTCYAN);
@@ -101,8 +101,8 @@ Input:
     currDate(date);
     currTime(time);
     // Capturing History
-    fprintf(CurrHistory, "%s    %s    %.4lf    %s-%s    %.4lf\n", date, time, currInput.amount, currType1, currType2, rate);
-    printf(" Calculation: %.4lf %s x %.4lf %s = %.02lf %s\n", currInput.amount, currType1, rate, currType2, (rate * currInput.amount), currType2);
+    fprintf(CurrHistory, "%s    %s    %.4lf    %s-%s    %.4lf    %.4lf\n", date, time, currInput.amount, currType1, currType2, rate, total);
+    printf(" Calculation: %.4lf %s x %.4lf %s = %.02lf %s\n", currInput.amount, currType1, rate, currType2, total, currType2);
     resetColor();
     fclose(CurrHistory);
     hidecursor();
