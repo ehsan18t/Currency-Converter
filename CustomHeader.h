@@ -3,6 +3,15 @@
 #include <windows.h>
 #include <stdlib.h>
 
+typedef struct
+{
+    char date[11];
+    char time[9];
+    char type[8];
+    double amount;
+    double rate;
+} history;
+
 void timeName(char data[], char prefix[])
 {
     time_t now = time(0);
