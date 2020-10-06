@@ -1,11 +1,6 @@
 #include <stdio.h>
 #include <time.h>
 #include "rlutil.h"
-#include "CustomHeader.h"
-
-void aTop();
-int inputValidate(char[]);
-void checkPrice(double, double, char[], char[], char[]);
 
 typedef struct
 {
@@ -14,9 +9,12 @@ typedef struct
     long interval;
 } AutoCheck;
 
+void aTop();
+int inputValidate(char[]);
+void checkPrice(double, double, char[], char[], char[], char[]);
 int vali4(AutoCheck, char[]);
 
-int main()
+int autoCheck()
 {
     saveDefaultColor();
     aTop();
@@ -42,7 +40,7 @@ Input:
     printf("Interval (in Minutes): ");
     scanf("%ld", &info.interval);
     info.interval += info.interval * 60 * 1000;
-    
+
     printf("\n");
     printf("   Date         Time      Exchange ID     Exchange Rate\n");
     printf("  ------       ------    -------------   ---------------\n");
@@ -50,7 +48,7 @@ Input:
     if (vali4(info, url) == -2)
         goto Input;
 
-    for (int z = 0; z < info.round; z++)
+    for (int i = 0; i < info.round; i++)
     {
         replace_url1(url, info.exc1);
         fetchJson(url, "currencyRate.json");
@@ -60,7 +58,7 @@ Input:
         checkPrice(oRate, nRate, date, time, currType1, currType2);
 
         // Interval
-        if (z != info.round)
+        if (i != info.round)
             Sleep(info.interval);
 
         // Copying Old Rate
