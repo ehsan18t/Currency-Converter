@@ -10,6 +10,7 @@ typedef struct
     char type[8];
     double amount;
     double rate;
+    double total;
 } history;
 
 void timeName(char data[], char prefix[])
