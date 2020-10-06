@@ -52,36 +52,6 @@ void replace_char(char *str, char oldChar, char newChar)
     }
 }
 
-void replace_url1(char url[], char x[])
-{
-    int i = 43, j = 0;
-    while (url[i] != '&')
-    {
-        url[i] = x[j];
-        j++;
-        i++;
-    }
-}
-
-void replace_url2(char url[], char x[], char y[])
-{
-    int i = 43, j = 0;
-    while (url[i] != '_')
-    {
-        url[i] = x[j];
-        j++;
-        i++;
-    }
-    i++;
-    j = 0;
-    while (url[i] != '&')
-    {
-        url[i] = y[j];
-        j++;
-        i++;
-    }
-}
-
 int check_char(char str[], char x)
 {
     int flag = 0, i = 0;

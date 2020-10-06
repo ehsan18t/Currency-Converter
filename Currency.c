@@ -22,7 +22,8 @@ typedef struct
 int CalculateCurrency(int *x)
 {
     char ch;
-    char url[MAX_LINE] = "https://free.currconv.com/api/v7/convert?q=USD_BDT&compact=ultra&apiKey=6cb174e127df4a1139f6";
+    char tmpU[MAX_LINE] = "https://free.currconv.com/api/v7/convert?q=";
+    char url[MAX_LINE] = "";
     saveDefaultColor();
 start:
     cTop();
@@ -72,7 +73,7 @@ Input:
     // Replacing '-' with '_' inside inputted currency type to match api url format.
     replace_char(currInput.currType, '-', '_');
     // creating api url according to user input
-    replace_url1(url, currInput.currType);
+    sprintf(url, "%s%s&compact=ultra&apiKey=6cb174e127df4a1139f6", tmpU, currInput.currType);
     // Fetching API
     fetchJson(url, "currencyRate.json");
     // Scanning exchange rate

@@ -30,8 +30,8 @@ void autoCheck()
     char AutoHisLoc[50] = "History/AutoCheckerHistory.txt";
     FILE *AutoHistory;
     AutoHistory = fopen(AutoHisLoc, "a+");
-    
-    char url[128] = "https://free.currconv.com/api/v7/convert?q=USD_BDT&compact=ultra&apiKey=6cb174e127df4a1139f6";
+    char tmpAU[128] = "https://free.currconv.com/api/v7/convert?q=";
+    char url[128] = "";
 Input:
     printf("Exchange ID: ");
     scanf("%s", &info.exc1);
@@ -44,6 +44,8 @@ Input:
     printf("Interval (in Minutes): ");
     scanf("%ld", &info.interval);
     info.interval += info.interval * 60 * 1000;
+    
+    sprintf(url, "%s%s&compact=ultra&apiKey=6cb174e127df4a1139f6", tmpAU, info.exc1);
 
     printf("\n");
     printf("   Date         Time      Exchange ID     Exchange Rate\n");
@@ -54,7 +56,6 @@ Input:
 
     for (int i = 0; i < info.round; i++)
     {
-        replace_url1(url, info.exc1);
         fetchJson(url, "currencyRate.json");
         nRate = scanjson("currencyRate.json");
         strupr(strncpy(currType1, info.exc1, 3));
@@ -127,7 +128,6 @@ int vali4(AutoCheck info, char url[])
     char currType1[4] = "";
     char currType2[4] = "";
     int nRate;
-    replace_url1(url, info.exc1);
     fetchJson(url, "currencyRate.json");
     nRate = scanjson("currencyRate.json");
     strupr(strncpy(currType1, info.exc1, 3));
