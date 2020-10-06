@@ -130,7 +130,7 @@ int vali4(AutoCheck info, char url[])
     if (nRate == -2)
     {
         setColor(RED);
-        printf("\n ERROR: INVALID INPUT AT 'Exchange %d: %s-%s'! PLEASE TRY AGAIN!\n\n", c, currType1, currType2);
+        printf("\n ERROR: INVALID INPUT AT 'Exchange ID: %s-%s'! PLEASE TRY AGAIN!\n\n", currType1, currType2);
         resetColor();
         return -2;
     }
