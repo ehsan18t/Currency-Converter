@@ -76,6 +76,25 @@ int inputValidation(char exID[])
     return 0;
 }
 
+// Input Validation Lv. 4
+int inputValidationLv4(char jsonName[])
+{
+    char rate[30] = "", temp[30] = "";
+    FILE *fp;
+
+    fp = fopen(jsonName, "r");
+    if (fp == NULL)
+        return -1;
+    fscanf(fp, "%s", &temp);
+    fclose(fp);
+    if (strcmp(temp, "{}") == 0)
+    {
+        remove(jsonName);
+        return -2;
+    }
+    return 0;
+}
+
 // This function will generate a date(CurrentDate - minus).
 // That means, if current Date is 7 OCT and minus = 7
 // than it will generate 1 OCT and store in data.
