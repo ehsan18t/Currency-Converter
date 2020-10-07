@@ -2,6 +2,7 @@
 #include <time.h>
 #include <windows.h>
 #include <stdlib.h>
+#include "rlutil.h"
 #include "bin/json/cJSON.h"
 #include "bin/json/cJSON.c"
 // cJSON REF: https://sourceforge.net/projects/cjson/
@@ -40,6 +41,39 @@ void currDate(char data[])
 {
     time_t now = time(0);
     strftime(data, 100, "%Y-%m-%d", localtime(&now));
+}
+
+int inputValidation(char exID[])
+{
+    char p1[4];
+    char p2[4];
+    // Input Validation Lv. 1
+    if(strlen(exID) != 7) 
+    {
+        wrongInput();
+        return -1;
+    }
+
+    // Input Validation Lv. 2
+    if (exID[3] != '-')
+    {
+        wrongInput();
+        return -1;
+    }
+    
+    strupr(strncpy(p1, exID, 3));
+    strupr(strcpy(p2, &exID[4]));
+    
+    // Input Validation Lv. 3
+    for (int i = 0; i < 3; i++)
+    {
+        if (!isalpha(p1[i]) || !isalpha(p2[i]))
+        {
+            wrongInput();
+            return -1;
+        }
+    }
+    return 0;
 }
 
 // This function will generate a date(CurrentDate - minus).
