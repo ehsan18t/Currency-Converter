@@ -42,7 +42,10 @@ void currDate(char data[])
     strftime(data, 100, "%Y-%m-%d", localtime(&now));
 }
 
-void PreviousDate(char data[], int minus)
+// This function will generate a date(CurrentDate - minus).
+// That means, if current Date is 7 OCT and minus = 7
+// than it will generate 1 OCT and store in data.
+void previousDate(char data[], int minus)
 {
     time_t now = time(NULL) - (24 * 60 * 60 * minus);
     strftime(data, 100, "%Y-%m-%d", localtime(&now));
