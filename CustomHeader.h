@@ -43,6 +43,13 @@ void currDate(char data[])
     strftime(data, 100, "%Y-%m-%d", localtime(&now));
 }
 
+void wrongInput()
+{
+    setColor(RED);
+    printf("\n ERROR: WRONG INPUT! PLEASE TRY AGAIN!\n\n");
+    resetColor();
+}
+
 int inputValidation(char exID[])
 {
     char p1[4];
@@ -137,13 +144,6 @@ int check_char(char str[], char x)
         i++;
     }
     return flag;
-}
-
-void wrongInput()
-{
-    setColor(RED);
-    printf("\n ERROR: WRONG INPUT! PLEASE TRY AGAIN!\n\n");
-    resetColor();
 }
 
 // Could be use json parser library but that will be overkill for
