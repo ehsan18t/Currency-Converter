@@ -2,6 +2,9 @@
 #include <time.h>
 #include <windows.h>
 #include <stdlib.h>
+#include "bin/json/cJSON.h"
+#include "bin/json/cJSON.c"
+// cJSON REF: https://sourceforge.net/projects/cjson/
 
 typedef struct
 {
@@ -12,6 +15,12 @@ typedef struct
     double rate;
     double total;
 } history;
+
+typedef struct
+{
+    char date[15];
+    double rate;
+} oneDayRate;
 
 void timeName(char data[], char prefix[])
 {
@@ -37,6 +46,16 @@ void PreviousDate(char data[], int minus)
 {
     time_t now = time(NULL) - (24 * 60 * 60 * minus);
     strftime(data, 100, "%Y-%m-%d", localtime(&now));
+}
+
+// JSON parser using cJSON.H & cJSON.c
+// REF: https://sourceforge.net/projects/cjson/
+double specificDateRate(char exID[], char date[], char data[])
+{
+    cJSON *root = cJSON_Parse(data);
+    cJSON *format = cJSON_GetObjectItem(root, exID);
+    double rate = cJSON_GetObjectItem(format, date)->valuedouble;
+    return rate;
 }
 
 void replace_char(char *str, char oldChar, char newChar)
