@@ -200,28 +200,33 @@ void bestConversionPrice()
     while (!feof(currConvHistory))
     {
         fscanf(currConvHistory, "%s %s %lf %s %lf %lf", &data.date, &data.time, &data.amount, &data.type, &data.rate, &data.total);
-        if (strcmp(data.type, highest[i].type) != 0)
+        if (strcmp(data.type, highest[i].type) == 0)
+        {
+            if (data.rate > highest[i].rate)
+            {
+                highest[i] = data;
+                i++;
+            }
+        }
+        else
         {
             flag = 0;
             for (int j = 0; j <= i; j++)
             {
                 if (strcmp(data.type, highest[j].type) == 0)
                 {
+                    if (data.rate > highest[j].rate)
+                        highest[j] = data;
                     flag = 1;
                     break;
                 }
             }
-        }
-        if (flag == 0)
-        {
-            flag = -1;
-            strcpy(highest[i].type, data.type);
-            strcpy(highest[i].date, data.date);
-            strcpy(highest[i].time, data.time);
-            highest[i].amount = data.amount;
-            highest[i].rate = data.rate;
-            highest[i].total = data.total;
-            i++;
+            if (flag == 0)
+            {
+                flag = -1;
+                highest[i] = data;
+                i++;
+            }
         }
     }
     fclose(currConvHistory);
@@ -257,26 +262,33 @@ void bestAutoRate()
     while (!feof(currConvHistory))
     {
         fscanf(currConvHistory, "%s %s %s %lf", &data.date, &data.time, &data.type, &data.rate);
-        if (strcmp(data.type, highest[i].type) != 0)
+        if (strcmp(data.type, highest[i].type) == 0)
+        {
+            if (data.rate > highest[i].rate)
+            {
+                highest[i] = data;
+                i++;
+            }
+        }
+        else
         {
             flag = 0;
             for (int j = 0; j <= i; j++)
             {
                 if (strcmp(data.type, highest[j].type) == 0)
                 {
+                    if (data.rate > highest[j].rate)
+                        highest[j] = data;
                     flag = 1;
                     break;
                 }
             }
-        }
-        if (flag == 0)
-        {
-            flag = -1;
-            strcpy(highest[i].type, data.type);
-            strcpy(highest[i].date, data.date);
-            strcpy(highest[i].time, data.time);
-            highest[i].rate = data.rate;
-            i++;
+            if (flag == 0)
+            {
+                flag = -1;
+                highest[i] = data;
+                i++;
+            }
         }
     }
     fclose(currConvHistory);
