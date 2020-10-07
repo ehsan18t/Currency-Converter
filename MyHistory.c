@@ -11,10 +11,11 @@ void currencyConversionHistory();
 void autoRateCheckingHistory();
 void bestConversionPrice();
 void bestAutoRate();
+void myHistoryEndOpt();
 
-int main()
+int myHistory()
 {
-    char ch;
+    char ch, ch2;
     saveDefaultColor();
 myHistoryMainMenu:
     cls();
@@ -30,28 +31,120 @@ myHistoryMainMenu:
         cls();
         hidecursor();
         currencyConversionHistory();
-        showcursor();
+        myHistoryEndOpt();
+        opt1:
+        ch2 = getch();
+        tolower(ch2);
+        if (ch2 == 'h')
+        {
+            showcursor();
+            goto myHistoryMainMenu;
+        }
+        else if (ch2 == 'm')
+        {
+            showcursor();
+            return 0;
+        }
+        else if (ch2 == 'x')
+        {
+            showcursor();
+            exit(0);
+        }
+        else
+        {
+            wrongInput();
+            goto opt1;
+        }
     }
     else if (ch == '2')
     {
         cls();
         hidecursor();
         autoRateCheckingHistory();
-        showcursor();
+        myHistoryEndOpt();
+        opt2:
+        ch2 = getch();
+        tolower(ch2);
+        if (ch2 == 'h')
+        {
+            showcursor();
+            goto myHistoryMainMenu;
+        }
+        else if (ch2 == 'm')
+        {
+            showcursor();
+            return 0;
+        }
+        else if (ch2 == 'x')
+        {
+            showcursor();
+            exit(0);
+        }
+        else
+        {
+            wrongInput();
+            goto opt2;
+        }
     }
     else if (ch == '3')
     {
         cls();
         hidecursor();
         bestConversionPrice();
-        showcursor();
+        myHistoryEndOpt();
+        opt3:
+        ch2 = getch();
+        tolower(ch2);
+        if (ch2 == 'h')
+        {
+            showcursor();
+            goto myHistoryMainMenu;
+        }
+        else if (ch2 == 'm')
+        {
+            showcursor();
+            return 0;
+        }
+        else if (ch2 == 'x')
+        {
+            showcursor();
+            exit(0);
+        }
+        else
+        {
+            wrongInput();
+            goto opt3;
+        }
     }
     else if (ch == '4')
     {
         cls();
         hidecursor();
         bestAutoRate();
-        showcursor();
+        myHistoryEndOpt();
+        opt4:
+        ch2 = getch();
+        tolower(ch2);
+        if (ch2 == 'h')
+        {
+            showcursor();
+            goto myHistoryMainMenu;
+        }
+        else if (ch2 == 'm')
+        {
+            showcursor();
+            return 0;
+        }
+        else if (ch2 == 'x')
+        {
+            showcursor();
+            exit(0);
+        }
+        else
+        {
+            wrongInput();
+            goto opt3;
+        }
     }
     else if (ch == 'm')
     {
@@ -65,7 +158,7 @@ myHistoryMainMenu:
     {
         wrongInput();
         goto myHistoryMainMenu;
-    } 
+    }
     return 0;
 }
 
@@ -296,4 +389,24 @@ void bestAutoRate()
     {
         printf("%s    %s      %s          %.4lf\n", highest[j].date, highest[j].time, highest[j].type, highest[j].rate);
     }
+}
+
+void myHistoryEndOpt()
+{
+    printf("\n ========================================================== ");
+    printf("\n ||    ");
+    setColor(LIGHTMAGENTA);
+    printf("[H]");
+    setColor(YELLOW);
+    printf(" My History     ");
+    setColor(LIGHTMAGENTA);
+    printf("[M]");
+    setColor(YELLOW);
+    printf(" Main Menu      ");
+    setColor(LIGHTMAGENTA);
+    printf("[X]");
+    setColor(YELLOW);
+    printf(" Exit    ");
+    resetColor();
+    printf("||\n ==========================================================\n");
 }
