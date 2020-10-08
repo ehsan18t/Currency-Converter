@@ -44,7 +44,7 @@ Input:
     printf("Interval (in Minutes): ");
     scanf("%ld", &info.interval);
     info.interval += info.interval * 60 * 1000;
-    
+
     sprintf(url, "%s%s&compact=ultra&apiKey=6cb174e127df4a1139f6", tmpAU, info.exc1);
 
     printf("\n");
@@ -64,7 +64,7 @@ Input:
         // Capturing History
         fprintf(AutoHistory, "%s    %s    %s-%s    %.4lf\n", date, time, currType1, currType2, nRate);
         // Interval
-        if (i != info.round-1)
+        if (i != info.round - 1)
             Sleep(info.interval);
 
         // Copying Old Rate

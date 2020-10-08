@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <string.h>
 #include <time.h>
 #include <windows.h>
@@ -55,7 +56,7 @@ int inputValidation(char exID[])
     char p1[4];
     char p2[4];
     // Input Validation Lv. 1
-    if(strlen(exID) != 7) 
+    if (strlen(exID) != 7)
     {
         wrongInput();
         return -1;
@@ -67,10 +68,10 @@ int inputValidation(char exID[])
         wrongInput();
         return -1;
     }
-    
+
     strupr(strncpy(p1, exID, 3));
     strupr(strcpy(p2, &exID[4]));
-    
+
     // Input Validation Lv. 3
     for (int i = 0; i < 3; i++)
     {

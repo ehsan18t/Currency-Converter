@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "rlutil.h"
+#include "CustomHeader.h"
 #include "Currency.c"
 #include "AutoCheck.c"
 #include "MyHistory.c"
@@ -31,24 +31,24 @@ STINP:
     }
     else if (ch == '2')
     {
-        autoCheck:
+    autoCheck:
         cls();
         autoCheck();
         endOptAuto();
         hidecursor();
-        autoCheckInp:
+    autoCheckInp:
         ch2 = tolower(getch());
         if (ch2 == 'm')
         {
             showcursor();
             goto stMenu;
         }
-        else if(ch2 == 'a')
+        else if (ch2 == 'a')
         {
             showcursor();
             goto autoCheck;
         }
-        else if(ch2 == 'x')
+        else if (ch2 == 'x')
             exit(0);
         else
         {
@@ -62,7 +62,6 @@ STINP:
     }
     else if (ch == '4')
     {
-        /* code */
         cls();
         myHistory();
         goto stMenu;

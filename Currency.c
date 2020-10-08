@@ -3,7 +3,6 @@
 #include <windows.h>
 #include <string.h>
 #include "rlutil.h"
-#include "CustomHeader.h"
 // "rlutil.h" Custom header file to use colors efficiently in cross platform
 // REF: https://github.com/tapio/rlutil
 
@@ -43,7 +42,7 @@ Input:
     resetColor();
 
     // Input Validation Lv. 1
-    if(strlen(currInput.currType) != 7) 
+    if (strlen(currInput.currType) != 7)
     {
         wrongInput();
         goto Input;
@@ -58,7 +57,7 @@ Input:
 
     strupr(strncpy(currType1, currInput.currType, 3));
     strupr(strcpy(currType2, &currInput.currType[4]));
-    
+
     // Input Validation Lv. 3
     for (int i = 0; i < 3; i++)
     {
@@ -68,7 +67,6 @@ Input:
             goto Input;
         }
     }
-    
 
     // Replacing '-' with '_' inside inputted currency type to match api url format.
     replace_char(currInput.currType, '-', '_');

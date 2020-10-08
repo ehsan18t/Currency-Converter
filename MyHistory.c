@@ -3,7 +3,16 @@
 #include <windows.h>
 #include <time.h>
 #include "rlutil.h"
-#include "CustomHeader.h"
+
+typedef struct
+{
+    char date[11];
+    char time[9];
+    char type[8];
+    double amount;
+    double rate;
+    double total;
+} history;
 
 void myHistoryMainMenu();
 void myHistoryTop();
@@ -32,7 +41,7 @@ myHistoryMainMenu:
         hidecursor();
         currencyConversionHistory();
         myHistoryEndOpt();
-        opt1:
+    opt1:
         ch2 = getch();
         tolower(ch2);
         if (ch2 == 'h')
@@ -62,7 +71,7 @@ myHistoryMainMenu:
         hidecursor();
         autoRateCheckingHistory();
         myHistoryEndOpt();
-        opt2:
+    opt2:
         ch2 = getch();
         tolower(ch2);
         if (ch2 == 'h')
@@ -92,7 +101,7 @@ myHistoryMainMenu:
         hidecursor();
         bestConversionPrice();
         myHistoryEndOpt();
-        opt3:
+    opt3:
         ch2 = getch();
         tolower(ch2);
         if (ch2 == 'h')
@@ -122,7 +131,7 @@ myHistoryMainMenu:
         hidecursor();
         bestAutoRate();
         myHistoryEndOpt();
-        opt4:
+    opt4:
         ch2 = getch();
         tolower(ch2);
         if (ch2 == 'h')
