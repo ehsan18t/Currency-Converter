@@ -3,7 +3,6 @@
 #include <windows.h>
 #include <time.h>
 #include "headers/rlutil.h"
-#include "headers/CustomHeader.h"
 
 void sevenDaysRateLive(int *);
 void checkSpecificDayRate();
@@ -12,7 +11,10 @@ void sevenDaysLiveTop();
 void specDayTop();
 void liveHistoryMainTop();
 
-int main()
+// TODO:
+// 1. Add header for all option.
+// 2. Add "Check Specific Day Rate"
+int checkRateHistoryLive()
 {
     char ch, ch2;
     int opt;
@@ -69,7 +71,7 @@ void sevenDaysRateLive(int *opt)
     char nDate[15] = "";
     char oDate[15] = "";
     char exID[8] = "";
-    char sevenHistoryJSON[128] = "sevenDaysHistory.json";
+    char sevenHistoryJSON[128] = "bin/sevenDaysHistory.json";
     char sevenHistoryData[1024] = "";
 sevenDaysEXID:
     printf(" Exchange ID: ");
@@ -100,6 +102,7 @@ sevenDaysEXID:
     sevenHistoryFile = fopen(sevenHistoryJSON, "r");
     fscanf(sevenHistoryFile, "%s", &sevenHistoryData);
     fclose(sevenHistoryFile);
+    remove(sevenHistoryJSON);
     for (int i = 0; i < 7; i++)
     {
         previousDate(sevenDays[i].date, i + 1);
@@ -112,13 +115,31 @@ sevenDaysEXID:
             highest = sevenDays[i];
     }
     hidecursor();
-//
-// Options print function here
-//
 askOpt:
+    printf("\n ===================================================================");
+    printf("\n ||   ");
+    setColor(LIGHTMAGENTA);
+    printf("[B]");
+    setColor(YELLOW);
+    printf(" Back    ");
+    setColor(LIGHTMAGENTA);
+    printf("[H]");
+    setColor(YELLOW);
+    printf(" Highest Rate    ");
+    setColor(LIGHTMAGENTA);
+    printf("[M]");
+    setColor(YELLOW);
+    printf(" Main Menu     ");
+    setColor(LIGHTMAGENTA);
+    printf("[X]");
+    setColor(YELLOW);
+    printf(" Exit  ");
+    resetColor();
+    printf("||\n ===================================================================\n");
+askOptInp:
     ch2 = getch();
     tolower(ch2);
-    if (ch2 == 'c')
+    if (ch2 == 'b')
     {
         showcursor();
         *opt = 1;
@@ -142,6 +163,7 @@ askOpt:
     else
     {
         wrongInput();
+        goto askOptInp;
     }
 }
 

@@ -3,6 +3,7 @@
 #include "bin/Currency.c"
 #include "bin/AutoCheck.c"
 #include "bin/MyHistory.c"
+#include "bin/CheckRateHistoryLive.c"
 
 void cMenu();
 void cHead();
@@ -55,7 +56,9 @@ STINP:
     }
     else if (ch == '3')
     {
-        /* code */
+       cls();
+       checkRateHistoryLive();
+       goto stMenu;
     }
     else if (ch == '4')
     {
@@ -102,9 +105,9 @@ void cMenu()
     printf("          |\n");
     printf("    |");
     resetColor();
-    printf("       3. Currrency Rate History Live");
+    printf("       3. Currency Rate History Live");
     setColor(LIGHTCYAN);
-    printf("      |\n");
+    printf("       |\n");
     printf("    |");
     resetColor();
     printf("       4. My History");
