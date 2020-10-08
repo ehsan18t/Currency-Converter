@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include "CustomHeader.h"
-#include "Currency.c"
-#include "AutoCheck.c"
-#include "MyHistory.c"
+#include "bin/headers/CustomHeader.h"
+#include "bin/Currency.c"
+#include "bin/AutoCheck.c"
+#include "bin/MyHistory.c"
 
 void cMenu();
 void cHead();
