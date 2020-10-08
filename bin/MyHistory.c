@@ -44,7 +44,7 @@ myHistoryMainMenu:
     opt1:
         ch2 = getch();
         tolower(ch2);
-        if (ch2 == 'h')
+        if (ch2 == 'b')
         {
             showcursor();
             goto myHistoryMainMenu;
@@ -74,7 +74,7 @@ myHistoryMainMenu:
     opt2:
         ch2 = getch();
         tolower(ch2);
-        if (ch2 == 'h')
+        if (ch2 == 'b')
         {
             showcursor();
             goto myHistoryMainMenu;
@@ -104,7 +104,7 @@ myHistoryMainMenu:
     opt3:
         ch2 = getch();
         tolower(ch2);
-        if (ch2 == 'h')
+        if (ch2 == 'b')
         {
             showcursor();
             goto myHistoryMainMenu;
@@ -134,7 +134,7 @@ myHistoryMainMenu:
     opt4:
         ch2 = getch();
         tolower(ch2);
-        if (ch2 == 'h')
+        if (ch2 == 'b')
         {
             showcursor();
             goto myHistoryMainMenu;
@@ -223,9 +223,9 @@ void myHistoryTop()
 void currencyConversionHistory()
 {
     setColor(LIGHTRED);
-    printf("\n                   =====================================        \n");
-    printf("                   ||   Currency Conversion History   ||        \n");
-    printf("                   =====================================       \n");
+    printf("\n                    =====================================        \n");
+    printf("                    ||   Currency Conversion History   ||        \n");
+    printf("                    =====================================       \n");
     resetColor();
     FILE *currConvHistory;
     history data;
@@ -238,12 +238,12 @@ void currencyConversionHistory()
     }
 
     printf("\n");
-    printf("   Date         Time       Amount      Exchange ID     Exchange Rate      Total\n");
-    printf("  ------       ------    ----------   -------------   ---------------    --------\n");
+    printf("    Date         Time       Amount      Exchange ID     Exchange Rate      Total\n");
+    printf("   ------       ------    ----------   -------------   ---------------    --------\n");
     while (!feof(currConvHistory))
     {
         fscanf(currConvHistory, "%s %s %lf %s %lf %lf", &data.date, &data.time, &data.amount, &data.type, &data.rate, &data.total);
-        printf("%s    %s     %.4lf        %s          %.4lf        %.4lf\n", data.date, data.time, data.amount, data.type, data.rate, data.total);
+        printf(" %s    %s     %.4lf        %s          %.4lf        %.4lf\n", data.date, data.time, data.amount, data.type, data.rate, data.total);
     }
     fclose(currConvHistory);
 }
@@ -251,9 +251,9 @@ void currencyConversionHistory()
 void autoRateCheckingHistory()
 {
     setColor(LIGHTRED);
-    printf("\n       =========================================        \n");
-    printf("       ||   Automatic Rate Checking History   ||        \n");
-    printf("       =========================================       \n");
+    printf("\n        =========================================        \n");
+    printf("        ||   Automatic Rate Checking History   ||        \n");
+    printf("        =========================================       \n");
     resetColor();
     FILE *currConvHistory;
     history data;
@@ -266,12 +266,12 @@ void autoRateCheckingHistory()
     }
 
     printf("\n");
-    printf("   Date         Time      Exchange ID     Exchange Rate\n");
-    printf("  ------       ------    -------------   ---------------\n");
+    printf("    Date         Time      Exchange ID     Exchange Rate\n");
+    printf("   ------       ------    -------------   ---------------\n");
     while (!feof(currConvHistory))
     {
         fscanf(currConvHistory, "%s %s %s %lf", &data.date, &data.time, &data.type, &data.rate);
-        printf("%s    %s      %s          %.4lf\n", data.date, data.time, data.type, data.rate);
+        printf(" %s    %s      %s          %.4lf\n", data.date, data.time, data.type, data.rate);
     }
     fclose(currConvHistory);
 }
@@ -279,9 +279,9 @@ void autoRateCheckingHistory()
 void bestConversionPrice()
 {
     setColor(LIGHTRED);
-    printf("\n                ============================================        \n");
-    printf("                ||   Best Price From Conversion History   ||        \n");
-    printf("                ============================================       \n");
+    printf("\n                 ============================================        \n");
+    printf("                 ||   Best Price From Conversion History   ||        \n");
+    printf("                 ============================================       \n");
     resetColor();
     int i = 0, flag = -1;
     FILE *currConvHistory;
@@ -297,8 +297,8 @@ void bestConversionPrice()
     }
 
     printf("\n");
-    printf("   Date         Time       Amount      Exchange ID     Exchange Rate      Total\n");
-    printf("  ------       ------    ----------   -------------   ---------------    --------\n");
+    printf("    Date         Time       Amount      Exchange ID     Exchange Rate      Total\n");
+    printf("   ------       ------    ----------   -------------   ---------------    --------\n");
     while (!feof(currConvHistory))
     {
         fscanf(currConvHistory, "%s %s %lf %s %lf %lf", &data.date, &data.time, &data.amount, &data.type, &data.rate, &data.total);
@@ -334,16 +334,16 @@ void bestConversionPrice()
     fclose(currConvHistory);
     for (int j = 0; j < i; j++)
     {
-        printf("%s    %s     %.4lf        %s          %.4lf        %.4lf\n", highest[j].date, highest[j].time, highest[j].amount, highest[j].type, highest[j].rate, highest[j].total);
+        printf(" %s    %s     %.4lf        %s          %.4lf        %.4lf\n", highest[j].date, highest[j].time, highest[j].amount, highest[j].type, highest[j].rate, highest[j].total);
     }
 }
 
 void bestAutoRate()
 {
     setColor(LIGHTRED);
-    printf("\n    ================================================        \n");
-    printf("    ||   Best Auto Rate Checking History Prices   ||        \n");
-    printf("    ================================================       \n");
+    printf("\n     ================================================        \n");
+    printf("     ||   Best Auto Rate Checking History Prices   ||        \n");
+    printf("     ================================================       \n");
     resetColor();
     int i = 0, flag = -1;
     FILE *currConvHistory;
@@ -359,8 +359,8 @@ void bestAutoRate()
     }
 
     printf("\n");
-    printf("   Date         Time      Exchange ID     Exchange Rate\n");
-    printf("  ------       ------    -------------   ---------------\n");
+    printf("    Date         Time      Exchange ID     Exchange Rate\n");
+    printf("   ------       ------    -------------   ---------------\n");
     while (!feof(currConvHistory))
     {
         fscanf(currConvHistory, "%s %s %s %lf", &data.date, &data.time, &data.type, &data.rate);
@@ -396,18 +396,18 @@ void bestAutoRate()
     fclose(currConvHistory);
     for (int j = 0; j < i; j++)
     {
-        printf("%s    %s      %s          %.4lf\n", highest[j].date, highest[j].time, highest[j].type, highest[j].rate);
+        printf(" %s    %s      %s          %.4lf\n", highest[j].date, highest[j].time, highest[j].type, highest[j].rate);
     }
 }
 
 void myHistoryEndOpt()
 {
-    printf("\n ========================================================== ");
+    printf("\n ====================================================");
     printf("\n ||    ");
     setColor(LIGHTMAGENTA);
-    printf("[H]");
+    printf("[B]");
     setColor(YELLOW);
-    printf(" My History     ");
+    printf(" Back     ");
     setColor(LIGHTMAGENTA);
     printf("[M]");
     setColor(YELLOW);
@@ -417,5 +417,5 @@ void myHistoryEndOpt()
     setColor(YELLOW);
     printf(" Exit    ");
     resetColor();
-    printf("||\n ==========================================================\n");
+    printf("||\n ====================================================\n");
 }
