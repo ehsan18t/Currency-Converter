@@ -1,0 +1,12 @@
+Project Name: Currency Converter
+Team Members:
+             Md. Ahasan Khan - 011201122
+             Rahat Ahsan - 011201117
+             Eftesum Ahmed - 011201133
+
+Source Code: https://github.com/Ahsan40/Currency-Converter
+Used IDE: Visual Studio Code
+Used Compiler: https://github.com/jmeubank/tdm-gcc/releases/download/v9.2.0-tdm64-1/tdm64-gcc-9.2.0.exe
+API Provider: https://free.currencyconverterapi.com/
+API Key: 6cb174e127df4a1139f6
+Presentation: Https://youtu.be/......
