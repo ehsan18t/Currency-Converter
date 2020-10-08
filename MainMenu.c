@@ -2,6 +2,7 @@
 #include "rlutil.h"
 #include "Currency.c"
 #include "AutoCheck.c"
+#include "MyHistory.c"
 
 void cMenu();
 void cHead();
@@ -62,6 +63,9 @@ STINP:
     else if (ch == '4')
     {
         /* code */
+        cls();
+        myHistory();
+        goto stMenu;
     }
     else if (ch == 'x' || ch == 'X')
     {
