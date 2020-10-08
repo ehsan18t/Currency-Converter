@@ -109,12 +109,14 @@ void checkPrice(double oRate, double nRate, char date[], char time[], char currT
     {
         setColor(LIGHTGREEN);
         printf("%s    %s      %s-%s          %.4lf\n", date, time, currType1, currType2, nRate);
+        system("powershell -c (New-Object Media.SoundPlayer \"bin\\sounds\\increase.wav\").PlaySync();");
         resetColor();
     }
     else if (nRate < oRate)
     {
         setColor(LIGHTRED);
         printf("%s    %s      %s-%s          %.4lf\n", date, time, currType1, currType2, nRate);
+        system("powershell -c (New-Object Media.SoundPlayer \"bin\\sounds\\decrease.wav\").PlaySync();");
         resetColor();
     }
     else
