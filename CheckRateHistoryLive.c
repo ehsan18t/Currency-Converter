@@ -5,38 +5,47 @@
 #include "rlutil.h"
 #include "CustomHeader.h"
 
-void sevenDaysRateLive();
+void sevenDaysRateLive(int *);
 void checkSpecificDayRate();
 void checkHistoryLiveMainMenu();
 void sevenDaysLiveTop();
-void myHistoryTop();
+void specDayTop();
+void liveHistoryMainTop();
 
-void main()
+int main()
 {
-    char SDRch;
+    char ch, ch2;
+    int opt;
     saveDefaultColor();
+SDRMenu:
+    cls();
+    liveHistoryMainTop();
     checkHistoryLiveMainMenu();
 SDRch:
     setColor(LIGHTGREEN);
     printf("\n     --> Input Option: ");
     resetColor();
-    SDRch = getch();
-    tolower(SDRch);
-    if (SDRch == '1')
+    ch = getch();
+    tolower(ch);
+    if (ch == '1')
     {
         cls();
-        sevenDaysRateLive();
+        sevenDaysRateLive(&opt);
+        if (opt == 1)
+            goto SDRMenu;
+        else if (opt == 2)
+            return 0;
     }
-    else if (SDRch == '2')
+    else if (ch == '2')
     {
         cls();
         void checkSpecificDayRate();
     }
-    else if (SDRch == 'm')
+    else if (ch == 'm')
     {
         cls();
     }
-    else if (SDRch == 'x')
+    else if (ch == 'x')
     {
         exit(0);
     }
@@ -47,12 +56,14 @@ SDRch:
     }
 }
 
-void sevenDaysRateLive()
+void sevenDaysRateLive(int *opt)
 {
     sevenDaysLiveTop();
     FILE *sevenHistoryFile;
     oneDayRate sevenDays[7];
+    oneDayRate highest = {"", 0};
     int errorCode;
+    char ch2;
     char tmp[128] = "https://free.currconv.com/api/v7/convert?apiKey=6cb174e127df4a1139f6&q=";
     char url[128] = "";
     char nDate[15] = "";
@@ -97,6 +108,40 @@ sevenDaysEXID:
     for (int i = 0; i < 7; i++)
     {
         printf("%s  -  %.4lf\n", sevenDays[i].date, sevenDays[i].rate);
+        if (sevenDays[i].rate > highest.rate)
+            highest = sevenDays[i];
+    }
+    hidecursor();
+//
+// Options print function here
+//
+askOpt:
+    ch2 = getch();
+    tolower(ch2);
+    if (ch2 == 'c')
+    {
+        showcursor();
+        *opt = 1;
+    }
+    else if (ch2 == 'm')
+    {
+        showcursor();
+        *opt = 2;
+    }
+    else if (ch2 == 'h')
+    {
+        cls();
+        printf("%s  -  %.4lf\n", highest.date, highest.rate);
+        goto askOpt;
+    }
+    else if (ch2 == 'x')
+    {
+        showcursor();
+        exit(0);
+    }
+    else
+    {
+        wrongInput();
     }
 }
 
@@ -155,7 +200,7 @@ void sevenDaysLiveTop()
     resetColor();
 }
 
-void myHistoryTop()
+void specDayTop()
 {
     setColor(LIGHTRED);
     printf("\n               =======================================        \n");
@@ -168,5 +213,15 @@ void myHistoryTop()
     printf(" |  Exchange ID: Which currency rate will be checked. (eg. USD-BDT)   |\n");
     printf(" |  Date: Which day's rate will be checked. (eg. 2020-10-06)          |\n");
     printf(" |____________________________________________________________________|\n\n");
+    resetColor();
+}
+
+void liveHistoryMainTop()
+{
+    setColor(LIGHTRED);
+    printf("\n      =======================================        \n");
+    printf("      ||   Currrency Rate History (Live)   ||        \n");
+    printf("      =======================================       \n");
+    setColor(LIGHTCYAN);
     resetColor();
 }
