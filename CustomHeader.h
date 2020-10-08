@@ -10,16 +10,6 @@
 
 typedef struct
 {
-    char date[11];
-    char time[9];
-    char type[8];
-    double amount;
-    double rate;
-    double total;
-} history;
-
-typedef struct
-{
     char date[15];
     double rate;
 } oneDayRate;

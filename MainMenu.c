@@ -10,7 +10,6 @@ void cHead();
 int main()
 {
     char ch, ch2;
-    int stMenu;
     saveDefaultColor();
 stMenu:
     cls();
@@ -24,10 +23,8 @@ STINP:
     if (ch == '1')
     {
         cls();
-        stMenu = 0;
-        CalculateCurrency(&stMenu);
-        if (stMenu == 1)
-            goto stMenu;
+        CalculateCurrency();
+        goto stMenu;
     }
     else if (ch == '2')
     {

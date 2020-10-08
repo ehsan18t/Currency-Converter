@@ -18,7 +18,8 @@ typedef struct
     char currType[8];
 } currInput;
 
-int CalculateCurrency(int *x)
+// Main function of this c file
+int CalculateCurrency()
 {
     char ch;
     char tmpU[MAX_LINE] = "https://free.currconv.com/api/v7/convert?q=";
@@ -126,7 +127,7 @@ ConfirmationEnd:
     else if (ch == 'm')
     {
         showcursor();
-        *x = 1;
+        return 0;
     }
     else if (ch == 'x')
     {
