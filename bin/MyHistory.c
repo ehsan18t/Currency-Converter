@@ -4,16 +4,6 @@
 #include <time.h>
 #include "headers/rlutil.h"
 
-typedef struct
-{
-    char date[11];
-    char time[9];
-    char type[8];
-    double amount;
-    double rate;
-    double total;
-} history;
-
 void myHistoryMainMenu();
 void myHistoryTop();
 void currencyConversionHistory();

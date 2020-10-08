@@ -56,9 +56,9 @@ STINP:
     }
     else if (ch == '3')
     {
-       cls();
-       checkRateHistoryLive();
-       goto stMenu;
+        cls();
+        checkRateHistoryLive();
+        goto stMenu;
     }
     else if (ch == '4')
     {
@@ -115,7 +115,7 @@ void cMenu()
     printf("                       |\n");
     printf("    |");
     resetColor();
-    printf("       x. Exit");
+    printf("       X. Exit");
     setColor(LIGHTCYAN);
     printf("                             |\n");
     printf("    |___________________________________________|\n");
