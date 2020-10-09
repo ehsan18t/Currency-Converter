@@ -235,7 +235,7 @@ void bestConversionPrice()
     FILE *currConvHistory;
     history data;
     // 20 different types exchange's highest price can be displayed
-    history highest[20] = {"", "", "", 0, 0, 0};
+    history highest[100] = {"", "", "", 0, 0, 0};
     char currConveHistoryLocation[128] = "History/CurrencyCalculationHistory.txt";
     currConvHistory = fopen(currConveHistoryLocation, "r");
     if (currConvHistory == NULL)
@@ -297,7 +297,7 @@ void bestAutoRate()
     FILE *currConvHistory;
     history data;
     // 20 different types exchange's highest price can be displayed
-    history highest[20] = {"", "", "", 0, 0, 0};
+    history highest[100] = {"", "", "", 0, 0, 0};
     char currConveHistoryLocation[128] = "History/AutoCheckerHistory.txt";
     currConvHistory = fopen(currConveHistoryLocation, "r");
     if (currConvHistory == NULL)
