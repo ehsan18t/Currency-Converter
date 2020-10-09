@@ -29,8 +29,6 @@ void autoCheck()
     int c = 0;
     char AutoHisLoc[50] = "History/AutoCheckerHistory.txt";
     FILE *AutoHistory;
-    ifFolderNotExist("History");
-    AutoHistory = fopen(AutoHisLoc, "a+");
     char tmpAU[128] = "https://free.currconv.com/api/v7/convert?q=";
     char url[128] = "";
 Input:
@@ -57,6 +55,11 @@ Input:
 
     for (int i = 0; i < info.round; i++)
     {
+        ifFolderNotExist("History");
+        // Opening & closing file inside a loop
+        // because interval could be long and
+        // without closing file data won't save.
+        AutoHistory = fopen(AutoHisLoc, "a+");
         fetchJson(url, "currencyRate.json");
         nRate = scanjson("currencyRate.json");
         strupr(strncpy(currType1, info.exc1, 3));
@@ -71,8 +74,8 @@ Input:
         // Copying Old Rate
         for (int m = 0; m < 5; m++)
             oRate = nRate;
+        fclose(AutoHistory);
     }
-    fclose(AutoHistory);
 }
 
 int inputValidate(char input[])
