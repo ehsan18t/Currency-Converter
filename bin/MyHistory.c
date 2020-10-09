@@ -12,6 +12,9 @@ void bestConversionPrice();
 void bestAutoRate();
 void myHistoryEndOpt();
 
+//
+// Main Function
+//
 int myHistory()
 {
     char ch, ch2;
@@ -161,54 +164,9 @@ myHistoryMainMenu:
     return 0;
 }
 
-void myHistoryMainMenu()
-{
-    setColor(LIGHTCYAN);
-    printf("  ______________________________________________________\n");
-    printf(" |                                                      |\n");
-    setColor(LIGHTCYAN);
-    printf(" |");
-    resetColor();
-    printf("    1. Currency Conversion History");
-    setColor(LIGHTCYAN);
-    printf("                    |\n");
-    printf(" |");
-    resetColor();
-    printf("    2. Automatic Rate Checking History");
-    setColor(LIGHTCYAN);
-    printf("                |\n");
-    printf(" |");
-    resetColor();
-    printf("    3. Best Price from Conversion History");
-    setColor(LIGHTCYAN);
-    printf("             |\n");
-    printf(" |");
-    resetColor();
-    printf("    4. Best Prices from Auto Rate Checking History");
-    setColor(LIGHTCYAN);
-    printf("    |\n");
-    printf(" |");
-    resetColor();
-    printf("    M. Main Manu");
-    setColor(LIGHTCYAN);
-    printf("                                      |\n");
-    printf(" |");
-    resetColor();
-    printf("    X. Exit");
-    setColor(LIGHTCYAN);
-    printf("                                           |\n");
-    printf(" |______________________________________________________|\n");
-    resetColor();
-}
-
-void myHistoryTop()
-{
-    setColor(LIGHTRED);
-    printf("\n                 ====================        \n");
-    printf("                 ||   My History   ||        \n");
-    printf("                 ====================       \n");
-    resetColor();
-}
+//
+// Major Functions
+//
 
 void currencyConversionHistory()
 {
@@ -390,6 +348,23 @@ void bestAutoRate()
     }
 }
 
+//
+// Headers UI
+//
+
+void myHistoryTop()
+{
+    setColor(LIGHTRED);
+    printf("\n                 ====================        \n");
+    printf("                 ||   My History   ||        \n");
+    printf("                 ====================       \n");
+    resetColor();
+}
+
+//
+// Footer Options UI
+//
+
 void myHistoryEndOpt()
 {
     printf("\n ====================================================");
@@ -408,4 +383,47 @@ void myHistoryEndOpt()
     printf(" Exit    ");
     resetColor();
     printf("||\n ====================================================\n");
+}
+
+//
+// Main Menu UI
+//
+void myHistoryMainMenu()
+{
+    setColor(LIGHTCYAN);
+    printf("  ______________________________________________________\n");
+    printf(" |                                                      |\n");
+    setColor(LIGHTCYAN);
+    printf(" |");
+    resetColor();
+    printf("    1. Currency Conversion History");
+    setColor(LIGHTCYAN);
+    printf("                    |\n");
+    printf(" |");
+    resetColor();
+    printf("    2. Automatic Rate Checking History");
+    setColor(LIGHTCYAN);
+    printf("                |\n");
+    printf(" |");
+    resetColor();
+    printf("    3. Best Price from Conversion History");
+    setColor(LIGHTCYAN);
+    printf("             |\n");
+    printf(" |");
+    resetColor();
+    printf("    4. Best Prices from Auto Rate Checking History");
+    setColor(LIGHTCYAN);
+    printf("    |\n");
+    printf(" |");
+    resetColor();
+    printf("    M. Main Manu");
+    setColor(LIGHTCYAN);
+    printf("                                      |\n");
+    printf(" |");
+    resetColor();
+    printf("    X. Exit");
+    setColor(LIGHTCYAN);
+    printf("                                           |\n");
+    printf(" |______________________________________________________|\n");
+    resetColor();
 }
