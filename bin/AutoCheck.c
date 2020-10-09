@@ -32,13 +32,13 @@ void autoCheck()
     char tmpAU[128] = "https://free.currconv.com/api/v7/convert?q=";
     char url[128] = "";
 Input:
-    printf("Exchange ID: ");
+    printf(" Exchange ID: ");
     scanf("%s", &info.exc1);
     if (inputValidate(info.exc1) == -1)
         goto Input;
     replace_char(info.exc1, '-', '_');
 
-    printf("Rounds: ");
+    printf(" Rounds: ");
     scanf("%d", &info.round);
     printf("Interval (in Minutes): ");
     scanf("%ld", &info.interval);
@@ -47,8 +47,8 @@ Input:
     sprintf(url, "%s%s&compact=ultra&apiKey=6cb174e127df4a1139f6", tmpAU, info.exc1);
 
     printf("\n");
-    printf("   Date         Time      Exchange ID     Exchange Rate\n");
-    printf("  ------       ------    -------------   ---------------\n");
+    printf("    Date         Time      Exchange ID     Exchange Rate\n");
+    printf("   ------       ------    -------------   ---------------\n");
 
     if (vali4(info, url) == -2)
         goto Input;
@@ -112,20 +112,20 @@ void checkPrice(double oRate, double nRate, char date[], char time[], char currT
     if (oRate != 0 && nRate > oRate)
     {
         setColor(LIGHTGREEN);
-        printf("%s    %s      %s-%s          %.4lf\n", date, time, currType1, currType2, nRate);
+        printf(" %s    %s      %s-%s          %.4lf\n", date, time, currType1, currType2, nRate);
         system("IF EXIST \"bin\\sounds\\increase.wav\" powershell -c (New-Object Media.SoundPlayer \"bin\\sounds\\increase.wav\").PlaySync();");
         resetColor();
     }
     else if (nRate < oRate)
     {
         setColor(LIGHTRED);
-        printf("%s    %s      %s-%s          %.4lf\n", date, time, currType1, currType2, nRate);
+        printf(" %s    %s      %s-%s          %.4lf\n", date, time, currType1, currType2, nRate);
         system("IF EXIST \"bin\\sounds\\decrease.wav\" powershell -c (New-Object Media.SoundPlayer \"bin\\sounds\\decrease.wav\").PlaySync();");
         resetColor();
     }
     else
     {
-        printf("%s    %s      %s-%s          %.4lf\n", date, time, currType1, currType2, nRate);
+        printf(" %s    %s      %s-%s          %.4lf\n", date, time, currType1, currType2, nRate);
     }
 }
 
