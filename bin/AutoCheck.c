@@ -32,7 +32,7 @@ void autoCheck()
     char tmpAU[128] = "https://free.currconv.com/api/v7/convert?q=";
     char url[128] = "";
 Input:
-    printf(" Exchange ID: ");
+    printf(" Exchange IDs: ");
     scanf("%s", &info.exc1);
     if (inputValidate(info.exc1) == -1)
         goto Input;
@@ -40,7 +40,7 @@ Input:
 
     printf(" Rounds: ");
     scanf("%d", &info.round);
-    printf("Interval (in Minutes): ");
+    printf(" Interval (in Minutes): ");
     scanf("%ld", &info.interval);
     info.interval += info.interval * 60 * 1000;
 
@@ -67,6 +67,7 @@ Input:
         checkPrice(oRate, nRate, date, time, currType1, currType2);
         // Capturing History
         fprintf(AutoHistory, "%s    %s    %s-%s    %.4lf\n", date, time, currType1, currType2, nRate);
+        fclose(AutoHistory);
         // Interval
         if (i != info.round - 1)
             Sleep(info.interval);
@@ -74,7 +75,6 @@ Input:
         // Copying Old Rate
         for (int m = 0; m < 5; m++)
             oRate = nRate;
-        fclose(AutoHistory);
     }
 }
 
