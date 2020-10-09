@@ -210,17 +210,19 @@ void fetchJson(char url[], char destination[])
     else if (dl == E_OUTOFMEMORY)
     {
         setColor(RED);
-        sprintf(buffer, "\n ERROR: Failed To Fetch API! \nREASON: Insufficient Memory!\n");
+        sprintf(buffer, "\n ERROR: Failed To Fetch API! \n REASON: Insufficient Memory!\n");
         printf(buffer);
         resetColor();
+        getch();
         exit(0);
     }
     else
     {
         setColor(RED);
-        sprintf(buffer, "\n ERROR: Failed To Fetch API! \nREASON: Internet Connction not Available!\n");
+        sprintf(buffer, "\n ERROR: Failed To Fetch API! \n REASON: Could not connect to the API!\n");
         printf(buffer);
         resetColor();
+        getch();
         exit(0);
     }
 }
