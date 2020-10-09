@@ -34,6 +34,7 @@ start:
     char date[20] = "";
     char CurrHisLoc[50] = "History/CurrencyCalculationHistory.txt";
     FILE *CurrHistory;
+    ifFolderNotExist("History");
     CurrHistory = fopen(CurrHisLoc, "a+");
 Input:
     setColor(LIGHTGREEN);
@@ -146,6 +147,7 @@ void saveOut(double amount, double rate, char currType1[], char currType2[])
     sprintf(x, "Calculations/%.2lf_%s-%s_", amount, currType1, currType2);
     timeName(buff, x);
     // opening file in writing mode
+    ifFolderNotExist("Calculations");
     fptr = fopen(x, "w");
 
     // exiting program

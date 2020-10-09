@@ -24,6 +24,17 @@ typedef struct
     double rate;
 } oneDayRate;
 
+// This function check if folder not exist,
+// it create new folder with same name.
+// NOTE: This function is crested with Windows CMD Prompt.
+//       In other word, only usable in Windows.
+void ifFolderNotExist(char path[])
+{
+    char command[256] = "";
+    sprintf(command, "IF NOT EXIST \"%s\" MKDIR \"%s\"", path, path);
+    system(command);
+}
+
 void timeName(char data[], char prefix[])
 {
     time_t now = time(0);

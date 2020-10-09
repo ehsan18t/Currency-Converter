@@ -87,7 +87,7 @@ void sevenDaysRateLive(int *opt)
     char nDate[15] = "";
     char oDate[15] = "";
     char exID[8] = "";
-    char sevenHistoryJSON[128] = "bin/sevenDaysHistory.json";
+    char sevenHistoryJSON[128] = "sevenDaysHistory.json";
     char sevenHistoryData[1024] = "";
 sevenDaysEXID:
     printf(" Exchange IDs: ");
@@ -178,7 +178,7 @@ void checkSpecificDayRate(int *opt)
     char tmp[128] = "https://free.currconv.com/api/v7/convert?apiKey=6cb174e127df4a1139f6&q=";
     char url[128] = "";
     char exID[8] = "";
-    char specHistoryJSON[128] = "bin/specDaysHistory.json";
+    char specHistoryJSON[128] = "specDaysHistory.json";
     char specHistoryData[1024] = "";
 specDayEXID:
     printf(" Exchange IDs: ");

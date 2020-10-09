@@ -29,6 +29,7 @@ void autoCheck()
     int c = 0;
     char AutoHisLoc[50] = "History/AutoCheckerHistory.txt";
     FILE *AutoHistory;
+    ifFolderNotExist("History");
     AutoHistory = fopen(AutoHisLoc, "a+");
     char tmpAU[128] = "https://free.currconv.com/api/v7/convert?q=";
     char url[128] = "";
