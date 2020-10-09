@@ -203,7 +203,7 @@ void fetchJson(char url[], char destination[])
 
     dl = xURLDownloadToFileA(NULL, url, destination, 0, NULL);
 
-    // Print only error messege if occurs.
+    // Print only error message if occurs.
     if (dl == S_OK)
     {
     }

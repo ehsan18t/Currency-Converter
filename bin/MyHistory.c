@@ -416,7 +416,7 @@ void myHistoryMainMenu()
     printf("    |\n");
     printf(" |");
     resetColor();
-    printf("    M. Main Manu");
+    printf("    M. Main Menu");
     setColor(LIGHTCYAN);
     printf("                                      |\n");
     printf(" |");
