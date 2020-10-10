@@ -156,7 +156,7 @@ int scanAPI()
     }
     fscanf(apiFile, "%s", &api);
     fclose(apiFile);
-    if (api[0] == '\0')
+    if (strlen(api) == 0)
         return -1;
 }
 
