@@ -169,7 +169,7 @@ void inputAPI()
     ifFolderNotExist("bin");
     apiFile = fopen(apiLocation, "a+");
     printf("\n");
-    if (api[0] = '\0')
+    if (strlen(api) == 0)
     {
         setColor(LIGHTRED);
         printf("        API FILE IS MISSING IN BIN FOLDER!\n");
