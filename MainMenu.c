@@ -165,9 +165,9 @@ void inputAPI()
     cls();
     cHead();
     FILE *apiFile;
+    char tmp[128] = "";
     char apiLocation[128] = "bin/api.txt";
     ifFolderNotExist("bin");
-    apiFile = fopen(apiLocation, "a+");
     printf("\n");
     if (strlen(api) == 0)
     {
@@ -182,20 +182,32 @@ void inputAPI()
     }
     else
     {
-        // resetColor();
-        // printf(" Your Current API Key is ");
-        // setColor(LIGHTBLUE);
-        // printf("%s\n\n", api);
-        // resetColor();
+        resetColor();
+        printf(" Your Current API Key is ");
+        setColor(LIGHTBLUE);
+        printf("%s \n\n", api);
+        resetColor();
+        setColor(LIGHTCYAN);
+        printf(" (Type 'cancel' to Cancel) \n");
+        resetColor();
         printf(" Please Input New API Key: ");
     }
 InputAPI:
-    scanf("%s", &api);
-    if (api == "")
+    scanf("%s", &tmp);
+    if (strlen(tmp) < 6)
     {
         wrongInput();
         goto InputAPI;
     }
-    fprintf(apiFile, "%s", api);
-    fclose(apiFile);
+    else if (strcmp(strlwr(tmp), "cancel") == 0)
+    {
+        // Noting need to do.....
+    }
+    else
+    {
+        sprintf(api, "%s", tmp);
+        apiFile = fopen(apiLocation, "w");
+        fprintf(apiFile, "%s", api);
+        fclose(apiFile);
+    }
 }
