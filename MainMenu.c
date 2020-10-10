@@ -7,11 +7,20 @@
 
 void cMenu();
 void cHead();
+int scanAPI();
+void inputAPI();
 
 int main()
 {
     char ch, ch2;
     saveDefaultColor();
+apiCheck:
+    system("TITLE Currency Converter v1.0.0");
+    if (scanAPI() == -1)
+    {
+        inputAPI();
+        goto apiCheck;
+    }
 stMenu:
     cls();
     cHead();
@@ -66,6 +75,12 @@ STINP:
         myHistory();
         goto stMenu;
     }
+    else if (ch == '5')
+    {
+        cls();
+        inputAPI();
+        goto stMenu;
+    }
     else if (ch == 'x' || ch == 'X')
     {
         exit(0);
@@ -115,9 +130,72 @@ void cMenu()
     printf("                       |\n");
     printf("    |");
     resetColor();
+    printf("       5. Change API Key");
+    setColor(LIGHTCYAN);
+    printf("                   |\n");
+    printf("    |");
+    resetColor();
     printf("       X. Exit");
     setColor(LIGHTCYAN);
     printf("                             |\n");
     printf("    |___________________________________________|\n");
     resetColor();
+}
+
+int scanAPI()
+{
+    FILE *apiFile;
+    char apiLocation[128] = "bin/api.txt";
+    ifFolderNotExist("bin");
+    apiFile = fopen(apiLocation, "r");
+    if (apiFile == NULL)
+    {
+        apiFile = fopen(apiLocation, "a+");
+        fclose(apiFile);
+        return -1;
+    }
+    fscanf(apiFile, "%s", &api);
+    fclose(apiFile);
+    if (api[0] == '\0')
+        return -1;
+}
+
+void inputAPI()
+{
+    cls();
+    cHead();
+    FILE *apiFile;
+    char apiLocation[128] = "bin/api.txt";
+    ifFolderNotExist("bin");
+    apiFile = fopen(apiLocation, "a+");
+    printf("\n");
+    if (api[0] = '\0')
+    {
+        setColor(LIGHTRED);
+        printf("        API FILE IS MISSING IN BIN FOLDER!\n");
+        resetColor();
+        printf(" You can get your own api from ");
+        setColor(LIGHTBLUE);
+        printf("https://free.currencyconverterapi.com\n\n");
+        resetColor();
+        printf(" Please Input Your API Key: ");
+    }
+    else
+    {
+        // resetColor();
+        // printf(" Your Current API Key is ");
+        // setColor(LIGHTBLUE);
+        // printf("%s\n\n", api);
+        // resetColor();
+        printf(" Please Input New API Key: ");
+    }
+InputAPI:
+    scanf("%s", &api);
+    if (api == "")
+    {
+        wrongInput();
+        goto InputAPI;
+    }
+    fprintf(apiFile, "%s", api);
+    fclose(apiFile);
 }

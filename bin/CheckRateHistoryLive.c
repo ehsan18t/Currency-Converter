@@ -82,7 +82,7 @@ void sevenDaysRateLive(int *opt)
     oneDayRate highest = {"", 0};
     int errorCode;
     char ch2;
-    char tmp[128] = "https://free.currconv.com/api/v7/convert?apiKey=6cb174e127df4a1139f6&q=";
+    char tmp[128] = "https://free.currconv.com/api/v7/convert?apiKey=";
     char url[128] = "";
     char nDate[15] = "";
     char oDate[15] = "";
@@ -99,6 +99,7 @@ sevenDaysEXID:
     replace_char(exID, '-', '_');
     previousDate(nDate, 8);
     previousDate(oDate, 1);
+    sprintf(tmp, "%s%s&q=",tmp, api);
     sprintf(url, "%s%s&compact=ultra&date=%s&endDate=%s", tmp, exID, nDate, oDate);
     fetchJson(url, sevenHistoryJSON);
     errorCode = inputValidationLv4(sevenHistoryJSON);
@@ -175,7 +176,7 @@ void checkSpecificDayRate(int *opt)
     oneDayRate specDay = {"", 0};
     int errorCode;
     char ch2;
-    char tmp[128] = "https://free.currconv.com/api/v7/convert?apiKey=6cb174e127df4a1139f6&q=";
+    char tmp[128] = "https://free.currconv.com/api/v7/convert?apiKey=";
     char url[128] = "";
     char exID[8] = "";
     char specHistoryJSON[128] = "specDaysHistory.json";
@@ -190,6 +191,7 @@ specDayEXID:
         goto specDayEXID;
 
     replace_char(exID, '-', '_');
+    sprintf(tmp, "%s%s&q=",tmp, api);
     sprintf(url, "%s%s&compact=ultra&date=%s", tmp, exID, specDay.date);
     fetchJson(url, specHistoryJSON);
     errorCode = inputValidationLv4(specHistoryJSON);

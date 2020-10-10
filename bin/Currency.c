@@ -73,7 +73,7 @@ Input:
     // Replacing '-' with '_' inside inputted currency type to match api url format.
     replace_char(currInput.currType, '-', '_');
     // creating api url according to user input
-    sprintf(url, "%s%s&compact=ultra&apiKey=6cb174e127df4a1139f6", tmpU, currInput.currType);
+    sprintf(url, "%s%s&compact=ultra&apiKey=%s", tmpU, currInput.currType, api);
     // Fetching API
     fetchJson(url, "currencyRate.json");
     // Scanning exchange rate

@@ -8,6 +8,9 @@
 #include "json/cJSON.c"
 // cJSON REF: https://sourceforge.net/projects/cjson/
 
+// Declared a global variable for api
+char api[100] = "";
+
 typedef struct
 {
     char date[11];

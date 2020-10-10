@@ -44,7 +44,7 @@ Input:
     scanf("%ld", &info.interval);
     info.interval += info.interval * 60 * 1000;
 
-    sprintf(url, "%s%s&compact=ultra&apiKey=6cb174e127df4a1139f6", tmpAU, info.exc1);
+    sprintf(url, "%s%s&compact=ultra&apiKey=%s", tmpAU, info.exc1, api);
 
     printf("\n");
     printf("    Date         Time      Exchange ID     Exchange Rate\n");
