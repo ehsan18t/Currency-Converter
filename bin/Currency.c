@@ -27,7 +27,7 @@ int CalculateCurrency()
     saveDefaultColor();
 start:
     cTop();
-    currInput currInput;
+    currInput currInput = {0, ""};
     double rate = 0, total = 0;
     char currType1[4] = "", currType2[4] = "";
     char time[20] = "";
@@ -40,7 +40,7 @@ Input:
     setColor(LIGHTGREEN);
     printf(" Input: ");
     setColor(LIGHTBLUE);
-    scanf("%lf %[^\n]", &currInput.amount, &currInput.currType);
+    scanf("%lf %s", &currInput.amount, &currInput.currType);
     resetColor();
 
     // Input Validation Lv. 1
@@ -171,15 +171,50 @@ void cTop()
     printf("\n                      ============================        \n");
     printf("                      ||   Currency Converter   ||        \n");
     printf("                      ============================        \n");
-    setColor(LIGHTCYAN);
+    setColor(LIGHTBLUE);
     printf("  ________________________________________________________________________________\n");
     printf(" |                                                                                |\n");
-    printf(" |  USES: [AMOUNT] [CURRENT CURRENCY ID]-[CONVERT CURRENCY ID]                    |\n");
-    printf(" |  EXAMPLES: 1 usd-bdt                                                           |\n");
-    printf(" |            500 bdt-usd                                                         |\n");
-    printf(" |            10 bdt-inr                                                          |\n");
-    printf(" |  NOTES: '-' is used as 'to'                                                    |\n");
-    printf(" |         All supported 'CURRENCY ID' can be found in 'Supported Currencies.txt' |\n");
+    printf(" |                           ");
+    setColor(LIGHTMAGENTA);
+    printf("INSTRUCTIONS");
+    setColor(LIGHTBLUE);
+    printf("                                         |\n");
+    printf(" |  ");
+    setColor(LIGHTGREEN);
+    printf("USES:");
+    setColor(LIGHTCYAN);
+    printf(" [AMOUNT] [CURRENT CURRENCY ID]-[CONVERT CURRENCY ID]");
+    setColor(LIGHTBLUE);
+    printf("                    |\n");
+    printf(" |  ");
+    setColor(LIGHTGREEN);
+    printf("EXAMPLES:");
+    setColor(LIGHTCYAN);
+    printf(" 1 usd-bdt");
+    setColor(LIGHTBLUE);
+    printf("                                                           |\n");
+    printf(" |            ");
+    setColor(LIGHTCYAN);
+    printf("500 bdt-usd");
+    setColor(LIGHTBLUE);
+    printf("                                                         |\n");
+    printf(" |            ");
+    setColor(LIGHTCYAN);
+    printf("10 bdt-inr");
+    setColor(LIGHTBLUE);
+    printf("                                                          |\n");
+    printf(" |  ");
+    setColor(LIGHTGREEN);
+    printf("NOTES:");
+    setColor(LIGHTCYAN);
+    printf(" '-' is used as 'to'");
+    setColor(LIGHTBLUE);
+    printf("                                                    |\n");
+    printf(" |         ");
+    setColor(LIGHTCYAN);
+    printf("All supported 'CURRENCY ID' can be found in 'Supported Currencies.txt'");
+    setColor(LIGHTBLUE);
+    printf(" |\n");
     printf(" |________________________________________________________________________________|\n\n");
     resetColor();
 }

@@ -63,6 +63,7 @@ myHistoryMainMenu:
             cls();
             bestConversionPrice();
             myHistoryEndOpt();
+            hidecursor();
             goto opt1;
         }
         else if (ch2 == 'm')
@@ -100,6 +101,7 @@ myHistoryMainMenu:
             cls();
             bestAutoRate();
             myHistoryEndOpt();
+            hidecursor();
             goto opt2;
         }
         else if (ch2 == 'm')
@@ -137,6 +139,7 @@ myHistoryMainMenu:
             cls();
             bestConversionPrice7D();
             myHistoryEndOpt();
+            hidecursor();
             goto opt3;
         }
         else if (ch2 == 'm')
@@ -174,6 +177,7 @@ myHistoryMainMenu:
             cls();
             bestAutoRate7D();
             myHistoryEndOpt();
+            hidecursor();
             goto opt4;
         }
         else if (ch2 == 'm')

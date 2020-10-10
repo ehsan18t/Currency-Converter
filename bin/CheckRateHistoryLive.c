@@ -14,10 +14,6 @@ void liveHistoryMainTop();
 void askOpt1();
 void askOpt2();
 
-// TODO:
-// 1. Date Verification in "Specific Date Rate Checking".
-// 2. Parse error info by "specificDateRate" in Header File.
-
 //
 // Main function of this C file
 //
