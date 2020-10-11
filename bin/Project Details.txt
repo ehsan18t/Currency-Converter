@@ -10,3 +10,7 @@ Used Compiler: https://github.com/jmeubank/tdm-gcc/releases/download/v9.2.0-tdm6
 API Provider: https://free.currencyconverterapi.com
 API Key: 6cb174e127df4a1139f6 (Free Trail)
 Presentation: Https://youtu.be/...... (Comming Soon)
+
+External Libraries:
+        rlutil.h     ->   REF: https://github.com/tapio/rlutil
+        cJSON        ->   cJSON REF: https://sourceforge.net/projects/cjson/
