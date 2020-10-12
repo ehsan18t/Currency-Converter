@@ -172,7 +172,7 @@ void inputAPI()
     if (strlen(api) == 0)
     {
         setColor(LIGHTRED);
-        printf("        API FILE IS MISSING IN BIN FOLDER!\n");
+        printf("                 API IS MISSING!!!\n");
         resetColor();
         printf(" You can get your own api from ");
         setColor(LIGHTBLUE);
