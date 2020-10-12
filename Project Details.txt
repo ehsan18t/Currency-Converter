@@ -9,8 +9,8 @@ Used IDE: Visual Studio Code
 Used Compiler: https://github.com/jmeubank/tdm-gcc/releases/download/v9.2.0-tdm64-1/tdm64-gcc-9.2.0.exe
 API Provider: https://free.currencyconverterapi.com
 API Key: 6cb174e127df4a1139f6 (Free Trail)
-Presentation: Https://youtu.be/...... (Comming Soon)
+Presentation: https://youtu.be/c9T8mWeEbLo
 
 External Libraries:
         rlutil.h     ->   REF: https://github.com/tapio/rlutil
-        cJSON        ->   cJSON REF: https://sourceforge.net/projects/cjson/
+        cJSON        ->   REF: https://sourceforge.net/projects/cjson/
