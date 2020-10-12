@@ -65,6 +65,7 @@ void wrongInput()
     resetColor();
 }
 
+// Checks validity by lenght, '-' & input type
 int inputValidation(char exID[])
 {
     char p1[4];
@@ -161,8 +162,7 @@ int check_char(char str[], char x)
     return flag;
 }
 
-// Could be use json parser library but that will be overkill for
-// this small amount of work.
+// Wrote this before stat using cJSON
 double scanjson(char jsonName[])
 {
     int i = 11, j = 0;

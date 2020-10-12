@@ -104,7 +104,7 @@ int inputValidate(char input[])
     }
     return 0;
 }
-
+// Comparing Old & New Rate and showing output accordingly
 void checkPrice(double oRate, double nRate, char date[], char time[], char currType1[], char currType2[])
 {
     currDate(date);
@@ -129,6 +129,8 @@ void checkPrice(double oRate, double nRate, char date[], char time[], char currT
     }
 }
 
+// Trying to check input via download API
+// If success, valid input. Else invalid.
 int vali4(AutoCheck info, char url[])
 {
     char currType1[4] = "";
@@ -147,6 +149,10 @@ int vali4(AutoCheck info, char url[])
     }
     return 0;
 }
+
+//
+// Decoration Functions
+//
 
 void aTop()
 {

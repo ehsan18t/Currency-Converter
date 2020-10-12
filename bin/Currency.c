@@ -139,6 +139,7 @@ ConfirmationEnd:
     return 0;
 }
 
+// Function to save ouput
 void saveOut(double amount, double rate, char currType1[], char currType2[])
 {
     FILE *fptr;
@@ -164,6 +165,10 @@ void saveOut(double amount, double rate, char currType1[], char currType2[])
     printf("\n                            -> Operation Successful <-\n");
     resetColor();
 }
+
+//
+// Decoration Functions
+//
 
 void cTop()
 {

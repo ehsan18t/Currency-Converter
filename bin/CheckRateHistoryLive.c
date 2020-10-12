@@ -240,9 +240,12 @@ askOptInp:
 }
 
 //
-// Main Menu UI
+//
+// Decoration Functions
+//
 //
 
+// Main Menu UI
 void checkHistoryLiveMainMenu()
 {
     setColor(LIGHTCYAN);

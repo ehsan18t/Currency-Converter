@@ -7,13 +7,18 @@
 
 void cMenu();
 void cHead();
+// This function will read api from file, if failed it will return -1
 int scanAPI();
+// This function is to change api which also ask api if scanAPI() fails
 void inputAPI();
 
+//
+// Main function of this project
 int main()
 {
     char ch, ch2;
     saveDefaultColor();
+    // Checking api
 apiCheck:
     system("TITLE Currency Converter v1.0.0");
     if (scanAPI() == -1)
@@ -93,6 +98,10 @@ STINP:
     return 0;
 }
 
+//
+// Decoration Functions
+//
+// Main Header
 void cHead()
 {
     setColor(LIGHTRED);
@@ -102,6 +111,7 @@ void cHead()
     resetColor();
 }
 
+// Main Menu
 void cMenu()
 {
     setColor(LIGHTCYAN);
@@ -142,6 +152,9 @@ void cMenu()
     resetColor();
 }
 
+//
+// Operational Functions
+//
 int scanAPI()
 {
     FILE *apiFile;
