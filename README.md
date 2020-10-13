@@ -27,9 +27,9 @@
 &nbsp;
 &nbsp;
 ## Screenshots
-![Main Menu](https://github.com/Ahsan400/Currency-Converter/raw/master/Screenshots/01.png?raw=true "Main Menu")
-![Historical Rate Menu](https://github.com/Ahsan400/Currency-Converter/raw/master/Screenshots/02.png?raw=true "Historical Rate Menu")
-![My History](https://github.com/Ahsan400/Currency-Converter/raw/master/Screenshots/03.png?raw=true "My History")
+![Main Menu](https://github.com/Ahsan40/Currency-Converter/raw/master/Screenshots/01.PNG?raw=true "Main Menu")
+![Historical Rate Menu](https://github.com/Ahsan40/Currency-Converter/raw/master/Screenshots/01.PNG?raw=true "Historical Rate Menu")
+![My History](https://github.com/Ahsan40/Currency-Converter/raw/master/Screenshots/01.PNG?raw=true "My History")
 
 &nbsp;
 &nbsp;
