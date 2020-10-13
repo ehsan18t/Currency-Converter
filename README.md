@@ -51,9 +51,9 @@ Simply compile *'MainMenu.c'* with *CodeBlocks* or other IDE that has compiler, 
 ## Screenshots
 ![Main Menu](https://github.com/Ahsan40/Currency-Converter/raw/master/Screenshots/01.PNG?raw=true "Main Menu")
 
-![Historical Rate Menu](https://github.com/Ahsan40/Currency-Converter/raw/master/Screenshots/01.PNG?raw=true "Historical Rate Menu")
+![Historical Rate Menu](https://github.com/Ahsan40/Currency-Converter/raw/master/Screenshots/02.PNG?raw=true "Historical Rate Menu")
 
-![My History](https://github.com/Ahsan40/Currency-Converter/raw/master/Screenshots/01.PNG?raw=true "My History")
+![My History](https://github.com/Ahsan40/Currency-Converter/raw/master/Screenshots/03.PNG?raw=true "My History")
 
 &nbsp;
 &nbsp;
