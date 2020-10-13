@@ -10,7 +10,8 @@
 
 <div align="center">
   <strong>An advanced Currency Converter with minimal size and command-line interface. Written in Pure C.</strong>
-  <strong><font color="#ff5c5c">(Only works on Windows OS)</font></strong>
+  <br>
+  <strong><span style="color:#ff5c5c;">(Only works on Windows OS)</span></strong>
 </div>
 
 &nbsp;
@@ -26,11 +27,10 @@
 &nbsp;
 &nbsp;
 ## Build instructions
-Simply compile **'MainMenu.c'** with **CodeBlocks** or other IDE that has compiler, everything is already included.
-
-**Or,** use GCC to use from CMD
+Simply compile *'MainMenu.c'* with *CodeBlocks* or other IDE that has compiler, everything is already included in **bin** folder. **Or,** use GCC to compile from CMD.
 
     gcc MainMenu.c -oYOUR-FILE-NAME
+(Make sure **bin** folder & **MainMenu.c** file are in the same directory.)
 
 &nbsp;
 &nbsp;
