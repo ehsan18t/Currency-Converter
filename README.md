@@ -9,8 +9,8 @@
 </div>
 
 <div align="center">
-  <strong>An advanced Currency Conveter with minimal size and command line interface. Written in Pure C.</strong>
-  <strong><p style="color:#ff5c5c";>(Only works on Windows OS)</p></strong>
+  <strong>An advanced Currency Converter with minimal size and command-line interface. Written in Pure C.</strong>
+  <strong><font color="#ff5c5c">(Only works on Windows OS)</font></strong>
 </div>
 
 &nbsp;
@@ -25,11 +25,12 @@
 	* and many more
 &nbsp;
 &nbsp;
-## Compile
-Simply compile 'MainMenu.c' with **CodeBlocks** or other IDE that has compiler, everything is already included.
+## Build instructions
+Simply compile **'MainMenu.c'** with **CodeBlocks** or other IDE that has compiler, everything is already included.
 
 **Or,** use GCC to use from CMD
-> gcc MainMenu.c -oYOUR-FILE-NAME
+
+    gcc MainMenu.c -oYOUR-FILE-NAME
 
 &nbsp;
 &nbsp;
@@ -49,9 +50,9 @@ Simply compile 'MainMenu.c' with **CodeBlocks** or other IDE that has compiler, 
 &nbsp;
 ## Screenshots
 ![Main Menu](https://github.com/Ahsan40/Currency-Converter/raw/master/Screenshots/01.PNG?raw=true "Main Menu")
-&nbsp;
+
 ![Historical Rate Menu](https://github.com/Ahsan40/Currency-Converter/raw/master/Screenshots/01.PNG?raw=true "Historical Rate Menu")
-&nbsp;
+
 ![My History](https://github.com/Ahsan40/Currency-Converter/raw/master/Screenshots/01.PNG?raw=true "My History")
 
 &nbsp;
