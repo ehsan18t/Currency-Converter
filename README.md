@@ -10,7 +10,7 @@
 
 <div align="center">
   <strong>An advanced Currency Conveter with minimal size and command line interface. Written in Pure C.</strong>
-  <strong><p style="color:#ff5c5c";>Only works on Windows OS.</p></strong>
+  <strong><p style="color:#ff5c5c";>(Only works on Windows OS)</p></strong>
 </div>
 
 &nbsp;
@@ -27,11 +27,11 @@
 &nbsp;
 &nbsp;
 ## References
-**External Libraries**
-    Supperted API Provider: https://free.currencyconverterapi.com
-    Recommended Compiler: https://github.com/jmeubank/tdm-gcc/releases/download/v9.2.0-tdm64-1/tdm64-gcc-9.2.0.exe
-    rlutil.h  -  REF: https://github.com/tapio/rlutil
-    cJSON     -  REF: https://sourceforge.net/projects/cjson/
+  **Supperted API Provider:** [CurrencyConverterAPI.Com](https://free.currencyconverterapi.com)\
+  **Recommended Compiler:** [TDM-GCC](https://jmeubank.github.io/tdm-gcc/download/e)\
+**External Libraries:**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [rlutil](https://github.com/tapio/rlutil)\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [cJSON](https://sourceforge.net/projects/cjson)
 
 &nbsp;
 &nbsp;
@@ -41,9 +41,10 @@
 &nbsp;
 &nbsp;
 ## Compile
-**Simply compile 'MainMenu.c' with CodeBlocks or other IDE that has compiler, everything is already included.**
-**Or, use GCC to use from CMD**
-    * gcc MainMenu.c -oYOUR-FILE-NAME
+Simply compile 'MainMenu.c' with **CodeBlocks** or other IDE that has compiler, everything is already included.
+
+**Or,** use GCC to use from CMD
+* gcc MainMenu.c -oYOUR-FILE-NAME
 
 &nbsp;
 &nbsp;
