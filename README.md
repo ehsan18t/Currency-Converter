@@ -23,28 +23,27 @@
 	* Full History Support
 	* Check Highest Rates From History
 	* and many more
-
-&nbsp;
-&nbsp;
-## References
-  **Supperted API Provider:** [CurrencyConverterAPI.Com](https://free.currencyconverterapi.com)\
-  **Recommended Compiler:** [TDM-GCC](https://jmeubank.github.io/tdm-gcc/download/e)\
-**External Libraries:**\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [rlutil](https://github.com/tapio/rlutil)\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [cJSON](https://sourceforge.net/projects/cjson)
-
-&nbsp;
-&nbsp;
-## Demonstrational Video
-[![Currency Converter](http://img.youtube.com/vi/c9T8mWeEbLo/0.jpg)](http://www.youtube.com/watch?v=c9T8mWeEbLo "Currency Converter | C Mini Project | Demonstrational Video (Bangali)")
-
 &nbsp;
 &nbsp;
 ## Compile
 Simply compile 'MainMenu.c' with **CodeBlocks** or other IDE that has compiler, everything is already included.
 
 **Or,** use GCC to use from CMD
-* gcc MainMenu.c -oYOUR-FILE-NAME
+> gcc MainMenu.c -oYOUR-FILE-NAME
+
+&nbsp;
+&nbsp;
+## References
+  **Supperted API Provider:** [CurrencyConverterAPI.Com](https://free.currencyconverterapi.com)\
+  **Recommended Compiler:** [TDM-GCC](https://jmeubank.github.io/tdm-gcc/download/e)\
+**External Libraries:**
+  * [rlutil](https://github.com/tapio/rlutil)
+  * [cJSON](https://sourceforge.net/projects/cjson)
+
+&nbsp;
+&nbsp;
+## Demonstrational Video
+[![Currency Converter](http://img.youtube.com/vi/c9T8mWeEbLo/0.jpg)](http://www.youtube.com/watch?v=c9T8mWeEbLo "Currency Converter | C Mini Project | Demonstrational Video (Bangali)")
 
 &nbsp;
 &nbsp;
