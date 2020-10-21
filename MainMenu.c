@@ -207,7 +207,7 @@ void inputAPI()
     }
 InputAPI:
     scanf("%s", &tmp);
-    if (strlen(tmp) < 6)
+    if (strlen(tmp) < 6 && strlen(tmp) > 127)
     {
         wrongInput();
         goto InputAPI;
