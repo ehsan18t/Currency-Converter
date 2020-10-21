@@ -41,6 +41,7 @@ Input:
     printf(" Input: ");
     setColor(LIGHTBLUE);
     scanf("%lf %s", &currInput.amount, &currInput.currType);
+    clearInputStream();
     resetColor();
 
     // Input Validation Lv. 1
