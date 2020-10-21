@@ -240,3 +240,10 @@ void fetchJson(char url[], char destination[])
         exit(0);
     }
 }
+
+void clearInputStream()
+{
+    char c;
+    while ((c = getchar()) != '\n' && c != EOF)
+        ;
+}
