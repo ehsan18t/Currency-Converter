@@ -3,6 +3,7 @@
 #include <windows.h>
 #include <string.h>
 #include "headers/rlutil.h"
+#include "bin/headers/CustomHeader.h"
 // "rlutil.h" Custom header file to use colors efficiently in cross platform
 // REF: https://github.com/tapio/rlutil
 

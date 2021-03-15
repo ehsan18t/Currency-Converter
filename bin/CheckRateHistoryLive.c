@@ -3,6 +3,7 @@
 #include <windows.h>
 #include <time.h>
 #include "headers/rlutil.h"
+#include "bin/headers/CustomHeader.h"
 
 void sevenDaysRateLive(int *);
 void checkSpecificDayRate(int *);
