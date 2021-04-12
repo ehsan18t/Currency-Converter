@@ -24,6 +24,7 @@
   * Full History Support
   * Check Highest Rates From History
   * and many more
+
 &nbsp;
 &nbsp;
 ## Drawbacks
@@ -32,6 +33,7 @@
   3. In this API, currency rates get refresh after every few hour, which means conversion of currency like Bitcoin will give outdated result at 99% time.
 
 (**NOTE:** All of them are API limitations and can be solved through the premium API.)
+
 &nbsp;
 &nbsp;
 ## Build instructions
@@ -57,11 +59,7 @@ Simply compile *'MainMenu.c'* with *CodeBlocks* or other IDE that has compiler, 
 &nbsp;
 &nbsp;
 ## Screenshots
-![Main Menu](https://github.com/Ahsan40/Currency-Converter/raw/master/Screenshots/01.PNG?raw=true "Main Menu")
-
-![Historical Rate Menu](https://github.com/Ahsan40/Currency-Converter/raw/master/Screenshots/02.PNG?raw=true "Historical Rate Menu")
-
-![My History](https://github.com/Ahsan40/Currency-Converter/raw/master/Screenshots/03.PNG?raw=true "My History")
+<img src="https://raw.githubusercontent.com/Ahsan40/Currency-Converter/master/Screenshots/01.PNG" width="30%" alt="Main Menu"></img> <img src="https://raw.githubusercontent.com/Ahsan40/Currency-Converter/master/Screenshots/02.PNG" width="30%" alt="Historical Rate Menu"></img> <img src="https://raw.githubusercontent.com/Ahsan40/Currency-Converter/master/Screenshots/03.PNG" width="30%" alt="My History"></img>
 
 &nbsp;
 &nbsp;
