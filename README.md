@@ -17,13 +17,21 @@
 &nbsp;
 &nbsp;
 ## Features
-	* Convert Currency With Current Rate 
-	* Check Currency Rate Automatically (Get Notification On Rate Change)
-	* Last 7 Days Rate From Internet
-	* Historical Date Rate
-	* Full History Support
-	* Check Highest Rates From History
-	* and many more
+  * Convert Currency With Current Rate 
+  * Check Currency Rate Automatically (Get Notification On Rate Change)
+  * Last 7 Days Rate From Internet
+  * Historical Date Rate
+  * Full History Support
+  * Check Highest Rates From History
+  * and many more
+&nbsp;
+&nbsp;
+## Drawbacks
+  1. Since we are using free API we have limitation of checking historical rate up to 1 year.
+  2. If a currency rate changes twice or more in day, and we try to get that days rate most likely that rate won't match with internet. This is also API limitation. With premium API &  3 lines of code could solve the whole issue.
+  3. In our API, rates get refresh after every few hour, which means conversion of currency like Bitcoin will give outdated result at 99% time.
+
+(**NOTE:** All of them are API limitations.)
 &nbsp;
 &nbsp;
 ## Build instructions
@@ -36,7 +44,7 @@ Simply compile *'MainMenu.c'* with *CodeBlocks* or other IDE that has compiler, 
 &nbsp;
 ## References
   **Supperted API Provider:** [CurrencyConverterAPI.Com](https://free.currencyconverterapi.com)\
-  **Recommended Compiler:** [TDM-GCC](https://jmeubank.github.io/tdm-gcc/download/e)\
+  **Recommended Compiler:** [TDM-GCC](https://jmeubank.github.io/tdm-gcc/download/)\
 **External Libraries:**
   * [rlutil](https://github.com/tapio/rlutil)
   * [cJSON](https://sourceforge.net/projects/cjson)
@@ -59,6 +67,6 @@ Simply compile *'MainMenu.c'* with *CodeBlocks* or other IDE that has compiler, 
 &nbsp;
 ## Need Help?
 **Telegram:** [https://t.me/Ahsan400](https://t.me/Ahsan400)\
-**Facebook:** [https://fb.me/Ahsan400](https://fb.me/Ahsan400)\
+**Facebook:** [https://m.me/Ahsan400](https://fb.me/Ahsan400)\
 **Email:** [help.ahsan@gmail.com](mailto:help.ahsan@gmail.com)
 
