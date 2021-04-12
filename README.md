@@ -62,7 +62,7 @@ Simply compile *'MainMenu.c'* with *CodeBlocks* or other IDE that has compiler, 
 | Main Menu  | Historical Rate Menu | My History  |
 |------------|----------------------|-------------|
 | <img src="Screenshots/01.PNG" alt="Main Menu" /> | <img src="Screenshots/02.PNG" alt="Historical Rate Menu" /> | <img src="Screenshots/03.PNG" alt="My History" />|
-&nbsp;
+
 &nbsp;
 ## Need Help?
 **Telegram:** [https://t.me/Ahsan400](https://t.me/Ahsan400)\
