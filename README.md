@@ -17,20 +17,20 @@
 &nbsp;
 &nbsp;
 ## Features
-  * Convert Currency With Current Rate 
-  * Check Currency Rate Automatically (Get Notification On Rate Change)
-  * Last 7 Days Rate From Internet
-  * Historical Date Rate
-  * Full History Support
-  * Check Highest Rates From History
-  * and many more
+    * Convert Currency With Current Rate 
+    * Check Currency Rate Automatically (Get Notification On Rate Change)
+    * Last 7 Days Rate From Internet
+    * Historical Date Rate
+    * Full History Support
+    * Check Highest Rates From History
+    * and many more
 
 &nbsp;
 &nbsp;
 ## Drawbacks
-  1. Since this program using free API it has limitation of checking historical rate up to 1 year.
-  2. If a currency rate changes twice or more in day and we try to get that days conversion rate, most likely the rate it will return won't match with the rates from the internet.
-  3. In this API, currency rates get refresh after every few hour, which means conversion of currency like Bitcoin will give outdated result at 99% time.
+    * Since this program using free API it has limitation of checking historical rate up to 1 year.
+    * If a currency rate changes twice or more in day and we try to get that days conversion rate, most likely the rate it will return won't match with the rates from the internet.
+    * In this API, currency rates get refresh after every few hour, which means conversion of currency like Bitcoin will give outdated result at 99% time.
 
 (**NOTE:** All of them are API limitations and can be solved through the premium API.)
 
