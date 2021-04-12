@@ -59,7 +59,7 @@ Simply compile *'MainMenu.c'* with *CodeBlocks* or other IDE that has compiler, 
 &nbsp;
 &nbsp;
 ## Screenshots
-<img src="https://raw.githubusercontent.com/Ahsan40/Currency-Converter/master/Screenshots/01.PNG" width="30%" alt="Main Menu"></img> <img src="https://raw.githubusercontent.com/Ahsan40/Currency-Converter/master/Screenshots/02.PNG" width="30%" alt="Historical Rate Menu"></img> <img src="https://raw.githubusercontent.com/Ahsan40/Currency-Converter/master/Screenshots/03.PNG" width="30%" alt="My History"></img>
+<img src="https://raw.githubusercontent.com/Ahsan40/Currency-Converter/master/Screenshots/01.PNG" width="33%" alt="Main Menu"></img> <img src="https://raw.githubusercontent.com/Ahsan40/Currency-Converter/master/Screenshots/02.PNG" width="33%" alt="Historical Rate Menu"></img> <img src="https://raw.githubusercontent.com/Ahsan40/Currency-Converter/master/Screenshots/03.PNG" width="33%" alt="My History"></img>
 
 &nbsp;
 &nbsp;
