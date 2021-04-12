@@ -27,11 +27,11 @@
 &nbsp;
 &nbsp;
 ## Drawbacks
-  1. Since we are using free API we have limitation of checking historical rate up to 1 year.
-  2. If a currency rate changes twice or more in day, and we try to get that days rate most likely that rate won't match with internet. This is also API limitation. With premium API &  3 lines of code could solve the whole issue.
-  3. In our API, rates get refresh after every few hour, which means conversion of currency like Bitcoin will give outdated result at 99% time.
+  1. Since this program using free API it has limitation of checking historical rate up to 1 year.
+  2. If a currency rate changes twice or more in day and we try to get that days conversion rate, most likely the rate it will return won't match with the rates from the internet.
+  3. In this API, currency rates get refresh after every few hour, which means conversion of currency like Bitcoin will give outdated result at 99% time.
 
-(**NOTE:** All of them are API limitations.)
+(**NOTE:** All of them are API limitations and can be solved through the premium API.)
 &nbsp;
 &nbsp;
 ## Build instructions
@@ -67,6 +67,6 @@ Simply compile *'MainMenu.c'* with *CodeBlocks* or other IDE that has compiler, 
 &nbsp;
 ## Need Help?
 **Telegram:** [https://t.me/Ahsan400](https://t.me/Ahsan400)\
-**Facebook:** [https://m.me/Ahsan400](https://fb.me/Ahsan400)\
+**Facebook:** [https://m.me/Ahsan400](https://m.me/Ahsan400)\
 **Email:** [help.ahsan@gmail.com](mailto:help.ahsan@gmail.com)
 
