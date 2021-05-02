@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include "headers/rlutil.h"
-#include "bin/headers/CustomHeader.h"
+#include "headers/CustomHeader.h"
 
 typedef struct
 {
