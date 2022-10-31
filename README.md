@@ -65,6 +65,7 @@ Simply compile *'MainMenu.c'* with *CodeBlocks* or other IDE that has compiler, 
 
 &nbsp;
 ## Need Help?
-**Email:** [Md. Ehsan Khan](mailto:help.ahsan@gmail.com)
+**Email:** [Md. Ehsan Khan](mailto:help.ahsan@gmail.com)/
 **Email:** [Syed Eftasum Alam](mailto:salam201133@bscse.uiu.ac.bd)
+
 
